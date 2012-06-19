@@ -1,0 +1,148 @@
+﻿v0.4.6
+* Added Swedish translation
+* Improved Mp3 audio syncronization
+* Fixed bug related to tracking when streaming server is down
+* Migrated from CVS to GIT repository :)
+
+V0.4.5
+* 0.4.5-r3 -> Fixed processor and memory consumption bug from 0.4.5
+* 0.4.5-r2 -> Fixed Icecast Metadata-Fetching Bug from 0.4.4
+* Added Bulgarian translation
+* Added Faredirfare skin!
+* Bug fixes
+* Make images folder relative to XML file (unless it images path is absolute)
+* Add function: change title by JS
+* Created LanguageFactory class to facilitate new languages inclusions.
+
+V0.4.4
+* Added Dead Connection Detection (if no data arrives after 20 seconds, then a
+  network error is assumed)
+* Fixed Flash internal Mp3 audio synchronization loose on several cases (intro
+  audio files, move streamings, change from live to record and vice versa will
+  start working!!!)
+* Fixed typo in tracking parameter name on HTML form generator. 
+* Display metadata inside the player
+* Don't launch metadata events if metadata hasn't changed.
+* StreamTheWorld metadata XML format support.
+* Set Streaming and Fallback URLs dynamically via JavaScript
+  (added setUrl(url:String) and setFallbackUrl(url:String) methods to the javascript API).
+
+V0.4.3
+* Patched OGG Library to support some cases of splitted ogg streamings with bitrate change
+  (thanks to Andrew Meakovski)
+  -org/xiph/foggy/Demuxer.hx (Diff: 127,128c127,128)  
+* Added Intro file support (must include introurl=http://....../introfile.mp3
+  - REMEMBER: MUST BE AN MP3 FILE -not ogg, wma, wav, or streaming-)
+* Greek translation (Thanks to: Vassilis Kotaras)
+* Added automatic language selection (optional)
+* Fixed non-standard language descriptors (sp => es, ger => de, nw => nb & nn)
+* Change volume control component to decrease volume faster when reaching zero
+  (provides a better use feeling).
+
+V0.4.2
+* Ability to change text align on text information field (check the test skin XML 
+  file for reference)
+* Now using MantisBT for bug reports and feature requests (to request/report 
+  please visit http://sourceforge.net/apps/mantisbt/ffmp3/)
+* Croatian Translation (thanks to Rafael Ribar)
+* Finnish Translation (thanks to Topi Mäenpää)
+* Added metadata loader for mp3 streamings (using xspf interface for icecast 
+  and html interface for shoutcast) - Note: FFMp3 needs a working crossdoamin.xml
+  file configured on your server to use this.
+* Added Google +1 and Facebook Like buttons on the website. Also created FFMp3 Twitter
+  account (http://twitter.com/#!/FFMp3) - Ok, this is probably not big deal, but may help
+  the project grow faster :)
+* Added Bidirectional Javascript API (now is possible to play, stop, change volume,
+  and to make the player display some text using Javascript).
+* Added Source callback information to tell javascript which streaming URL is beeing used.
+  (useful if you want to debug or know when you're using the fallback streaming).
+* Added Fallback callback information to tell javascript if the streaming in use is the 
+  fallback signal.
+* Fixed dropdown menu missing when skin parameter has an error in the skin-configurable
+  player.
+* Added classid parameter to the auto generated html code, to allow Bidirectional
+  Javascript API work on internet explorer.
+* Replaced FlashDevelop 2 project file for FlashDevelop 3 and 4
+
+v0.4.1
+* Dutch Translation (thanks to Gerard Hollemans)
+* Hungarian Translation (thanks to Tajti Róbert)
+* Polish Translation (thanks to Piotr Kozłowski)
+* Fixed compilation issues under Linux and Mac: (thanks to Michael Krause)
+  * Renamed OggSound.hx to OGGSound.hx (case correction) 
+  * Renamed volumeControl.hx to VolumeControl.hx (case correction)
+* Compatible/compilable with haXe 2.08.
+* Added Fallback Signal Support (in case of error in one signal, starts using the second)
+  - Check FAQ section for more details.
+
+v0.4.0
+Changes to the Player:
+* Compatible/compilable with haXe 2.06.
+* Added VHolder mode for volume control skin component.
+* Updated Ogg Library so:
+  - Solved metadata issues with OGG.
+  - More audio qualities supported in OGG Streaming!
+* Added metadata events and metadata control objects - Check FAQ section for more details.
+* OGG Metadata delivery via javascript  - Check FAQ section for more details.
+* Refactored player Class.
+* Changed javascript API calls to using flash.external AP
+* Configurable Buffering Time - (only for Mp3 streamings. must add buffering=X in flashvars)
+* Now FFMp3 keeps playing buffered content while reconnecting in case of network error.
+* Added Russian Language
+
+Changes to the Web:
+* Fixed FAQ explanation on crossdomain and mime.types issue for windows and linux users.
+* Fixed broken link to Shout-Stream Wordpress Plugin.
+* Removed "Coming Features" section.
+* Added "ChangeLog" section.
+
+Changes to the Web HTML Code Generator:
+* Added default option AllowScriptAccess=Always into web html code generator to avoid issues 
+  when including the player from another host.
+* Provide an easy way to enable/disable tracking in the web html code generator.
+* Validate "Volume" value at web html code generator.
+* Added Buffering Time option at the web html code generator.
+* Added JSEvents Enable/Disable Option at the web html code generator.
+
+v0.3.2
+* Fix on CodeGenerator @ download page (now replaces spaces with %20)
+* Norwegian Translation (thanks to Erik Paulsen Skålerud)
+* Turkish Translation (thanks to Tarkan Kaya)
+* Poruguese Translation (thanks to Miguel Vidal)
+* Fixed bug when pressing play multiple times in a very short time (like double clicking 
+  the play button, reported by Tarkan Kaya)
+* Added support for Javascript Events (inform player events to javascript)
+
+v0.3.1
+* Context menu whith link to ffmp3 website.
+* More languages (FR, GER, IT)
+* Added Version String to Tracking code (Tracking remains optional).
+
+v0.3
+* Configurable Skin via XML and Images
+* More Skins!
+
+v0.2
+* Drag over the volume bar
+* Mouse wheel for volume bar (In FF doesn't works if wmode is enabled)
+* Status Led
+* Complete Refactor of player, UI and Main clases
+* Skins Interface
+* Players Interface (to add OGG and others in the future)
+* Abstract-Reusable graphics component for the volume bar
+* Typified status (one step to internationalization)
+* FlashDevelp Project including outputs for Different Skins on the same project.
+* Internacionalization
+* Google Analytics Tracker (just when user clicks play, but can disable with tracking=false)
+* OGG Player
+* Get a Logo (an Argentinean Cardinal Bird)
+* Volume parameter
+* Codec parameter
+* Welcome parameter
+* Interface for new playable formats Class
+* Added Security Error control (for missing or restrictive crossdomain.xml when using OGG)
+* New Website
+* HTML Code Generator @ Website
+
+v0.1
+* Can't remember...

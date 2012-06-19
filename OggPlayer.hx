@@ -1,0 +1,89 @@
+import flash.utils.Timer;
+
+class OggPlayer extends Player {
+	
+	var sound(default,null): OGGSound;
+	var trafficControlTimer : Timer;
+	var lastByteCount:UInt;
+
+    static function init_statics() : Void {
+        org.xiph.fogg.Buffer._s_init();
+        org.xiph.fvorbis.FuncFloor._s_init();
+        org.xiph.fvorbis.FuncMapping._s_init();
+        org.xiph.fvorbis.FuncTime._s_init();
+        org.xiph.fvorbis.FuncResidue._s_init();
+    }
+	
+	public function new(ui:UI,url:String,tracker:Tracker,fallbackUrl:String,introUrl:String){
+		init_statics();
+		super(ui,url,tracker,fallbackUrl,introUrl);
+		fileextension="ogg";
+		trafficControlTimer = new Timer(20000, 1);
+		trafficControlTimer.addEventListener(flash.events.TimerEvent.TIMER, trafficControl);
+	}
+
+	function trafficControl(e = null) {
+		if (e == null) {
+			lastByteCount = 0;
+		}		
+		if (lastByteCount == sound.bytesLoaded && e!=null) {
+			ioError(null);
+		}else{
+			lastByteCount = sound.bytesLoaded;
+			trafficControlTimer.reset();
+			trafficControlTimer.start();
+		}
+	}
+	
+	override function createSoundObject(){
+		sound = new OGGSound();
+		soundObject=sound;
+		sound.addEventListener(MetadataEvent.METADATA_EVENT,setMetadata);
+	}
+	
+	override function closeSound(){
+		if(sound!=null){
+			sound.close();
+			Reflect.deleteField(this,'sound');
+			sound=null;
+		}
+		soundObject=null;
+		trafficControlTimer.stop();
+	}
+	
+	override function loadSound(request:flash.net.URLRequest){
+		if(sound!=null){
+			sound.load(request);
+		}
+	}
+	
+	override function startSound(){
+		if (sound != null) {
+			sound.play();
+			trafficControl(null);
+		}
+	}
+	
+	override function soundLength():Float{
+		return sound.length;
+	}
+	
+	override private function updateVolume(){
+		if(sound!=null){
+			sound.setVolume(volume);
+		}
+	}
+	
+	override private function setMetadata(e:MetadataEvent){
+		ui.setMetadata(e.value);
+	}
+	
+	override public function stop(){
+		if(sound!=null){
+			sound.stop();
+		}
+		trafficControlTimer.stop();
+		super.stop();
+	}
+	
+}

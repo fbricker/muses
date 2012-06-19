@@ -1,0 +1,25 @@
+# FFmp3-Default
+-swf9 ffmp3.swf
+-main FFMp3
+-swf-version 10
+-swf-header 329:21:12:000000
+-swf-lib Resource.swf
+-D skindefault
+
+--next
+# FFMp3-Tiny
+-swf9 ffmp3-tiny.swf
+-main FFMp3
+-swf-version 10
+-swf-header 130:60:12:000000
+-swf-lib Resource.swf
+-D skintiny
+
+--next
+# FFMP3-Configurable
+-swf9 ffmp3-config.swf
+-main FFMp3
+-swf-version 10
+-swf-header 130:60:12:000000
+-swf-lib Resource.swf
+-D skinconfigurable

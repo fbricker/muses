@@ -1,0 +1,3 @@
+#!/bin/sh
+haxe -cp . FFMp3.hxml
+echo Done...
