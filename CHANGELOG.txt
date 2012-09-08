@@ -2,7 +2,7 @@
 * Added Swedish translation
 * Improved Mp3 audio syncronization
 * Fixed bug related to tracking when streaming server is down
-* Migrated from CVS to GIT repository :)
+* Migrated from CVS to GIT repository / Published sources on GitHub :)
 
 V0.4.5
 * 0.4.5-r3 -> Fixed processor and memory consumption bug from 0.4.5
@@ -42,16 +42,14 @@ V0.4.3
 V0.4.2
 * Ability to change text align on text information field (check the test skin XML 
   file for reference)
-* Now using MantisBT for bug reports and feature requests (to request/report 
-  please visit http://sourceforge.net/apps/mantisbt/ffmp3/)
 * Croatian Translation (thanks to Rafael Ribar)
 * Finnish Translation (thanks to Topi Mäenpää)
 * Added metadata loader for mp3 streamings (using xspf interface for icecast 
   and html interface for shoutcast) - Note: FFMp3 needs a working crossdoamin.xml
   file configured on your server to use this.
 * Added Google +1 and Facebook Like buttons on the website. Also created FFMp3 Twitter
-  account (http://twitter.com/#!/FFMp3) - Ok, this is probably not big deal, but may help
-  the project grow faster :)
+  account (http://twitter.com/#!/MusesPlayer) - Ok, this is probably not big deal, but
+  may help the project grow faster :)
 * Added Bidirectional Javascript API (now is possible to play, stop, change volume,
   and to make the player display some text using Javascript).
 * Added Source callback information to tell javascript which streaming URL is beeing used.

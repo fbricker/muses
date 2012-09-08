@@ -1,5 +1,5 @@
-FFMp3
-=====
+Muses Radio Player
+==================
 
 The Flash MP3/OGG Live Stream Player.
 
@@ -12,12 +12,12 @@ Live Mp3/OGG Flash Player that works great with Shotcast and Icecast 2. It has s
 Developed in haXe, this project only needs Flash 10 plugin (or newer) to work.
 
 
-http://ffmp3.sourceforge.net | Twitter: @FFMp3
+http://www.musesradioplayer.com | Twitter: @MusesPlayer
 
 
 Licence
 =======
-FFMp3 - A simple Flash Mp3 Live Streaming player written in Haxe.
+Muses Radio Player - A simple Flash Mp3 Live Streaming player written in Haxe.
 
 Copyright (C) 2009-2012 Federico Bricker
 
