@@ -1,6 +1,6 @@
 <!--
-THIS IS A SAMPLE SKIN FILE FOR FFMP3
-------------------------------------
+THIS IS A SAMPLE SKIN FILE FOR MUSES RADIO PLAYER
+-------------------------------------------------
 
 IMPORTANT NOTE:
 ---------------
@@ -11,7 +11,7 @@ EMBED SECTION OF YOUR FLASH CODE)
 
 XML SECTIONS:
 -------------
-* FFMP3-SKIN:
+* MUSES-SKIN:
     This is the main section. Here you can set the folder where images will be
     found.
     Note that you can set relative or absolute paths (even remote hosts!)
@@ -87,7 +87,7 @@ SECTION ATTRIBUTES:
 TIPS AND ADVICES:
 -----------------
 Don't forget to use attribute="value" format (always with quotes). HAXE XML OBJECT REQUIRES THAT.
-Check that the ffmp3-skin tag is well closed (</ffmp3-skin>) and that the opening and closing case (upper or lowercase) is the same. HAXE XML OBJECT REQUIRES THAT.
+Check that the muses-skin tag is well closed (</muses-skin>) and that the opening and closing case (upper or lowercase) is the same. HAXE XML OBJECT REQUIRES THAT.
 
 
 ######################################################################
@@ -97,7 +97,7 @@ OK, NOW HERE IS THE SKIN XML FILE. Play with it and feel free!
 ######################################################################
 
 -->
-<ffmp3-skin folder="test-skins-images">
+<muses-skin folder="test-skins-images">
   <bg image="bg.jpg" x="0" y="0" ></bg>
   <play image="play.jpg" x="10" y="10" clickimage="playclick.jpg" />
   <stop image="stop.jpg" x="50" y="10" clickimage="stopclick.jpg" />
@@ -112,4 +112,4 @@ OK, NOW HERE IS THE SKIN XML FILE. Play with it and feel free!
 	  mode="holder"  You-can-try-with-mode="bars or vholder"
   />
   <status imagePlay="statusplay.jpg" imageStop="statusstop.jpg" x="2" y="2" />
-</ffmp3-skin>
+</muses-skin>

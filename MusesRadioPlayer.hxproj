@@ -4,7 +4,7 @@
   <output>
     <movie outputType="CustomBuild" />
     <movie input="" />
-    <movie path="bin\ffmp3.swf" />
+    <movie path="bin\muses.swf" />
     <movie fps="30" />
     <movie width="800" />
     <movie height="600" />
@@ -21,7 +21,7 @@
   <build>
     <option directives="" />
     <option flashStrict="False" />
-    <option mainClass="FFMp3" />
+    <option mainClass="MusesRadioPlayer" />
     <option enabledebug="True" />
     <option additional="" />
   </build>
@@ -42,7 +42,7 @@
     <!-- example: <hidden path="..." /> -->
   </hiddenPaths>
   <!-- Executed before build -->
-  <preBuildCommand>haxe ffmp3.hxml</preBuildCommand>
+  <preBuildCommand>haxe MusesRadioPlayer.hxml</preBuildCommand>
   <!-- Executed after build -->
   <postBuildCommand alwaysRun="False" />
   <!-- Other project options -->

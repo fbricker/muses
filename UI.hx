@@ -1,3 +1,29 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+//  Muses Radio Player - Radio Streaming player written in Haxe.
+//
+//  Copyright (C) 2009-2012  Federico Bricker
+//
+//  This program is free software; you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation; either version 2 of the License, or
+//  (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License along
+//  with this program; if not, write to the Free Software Foundation, Inc.,
+//  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+//
+//  This Project was initially based on FOggPlayer by Bill Farmer. So 
+//  my special thanks to him! :)
+//
+//  Federico Bricker  f bricker [at] gmail [dot] com.
+//
+////////////////////////////////////////////////////////////////////////////////
 import flash.utils.Timer;
 
 class UI extends flash.display.MovieClip {
@@ -75,7 +101,7 @@ class UI extends flash.display.MovieClip {
 	
 	private function callBack(event:String,param:String){
 		if(!jsEvents) return;
-		flash.external.ExternalInterface.call("ffmp3Callback",event,param);
+		flash.external.ExternalInterface.call("musesCallback",event,param);
 	}
 	
 	public function informSource(url:String,isFallback:Bool) {
@@ -125,9 +151,9 @@ class UI extends flash.display.MovieClip {
 		}
 	}
 	
-	public function setStatus(status:FFMp3PlayerStatus, autorestore:Bool = true ) {
+	public function setStatus(status:PlayerStatus, autorestore:Bool = true ) {
 		callBack(Type.enumConstructor(status),"0");
-		if(status==FFMp3PlayerStatus.buffering){
+		if(status==PlayerStatus.buffering){
 			return;
 		}
 		setTitle(lang.getTextByStatus(status));
@@ -147,14 +173,14 @@ class UI extends flash.display.MovieClip {
 	public function buildContextMenu(){
 		var cm=new flash.ui.ContextMenu();
 		cm.hideBuiltInItems();
-		var item = new flash.ui.ContextMenuItem(lang.getText('about')+' ('+lang.getText('version')+' '+FFMp3.VERSION+')');
+		var item = new flash.ui.ContextMenuItem(lang.getText('about')+' ('+lang.getText('version')+' '+MusesRadioPlayer.VERSION+')');
 		cm.customItems.push(item);
-		item.addEventListener(flash.events.ContextMenuEvent.MENU_ITEM_SELECT, aboutFFMP3);
+		item.addEventListener(flash.events.ContextMenuEvent.MENU_ITEM_SELECT, aboutMusesRadioPlayer);
 		flash.Lib.current.contextMenu=cm;
 	}
 	
-	function aboutFFMP3(e: flash.events.ContextMenuEvent){
-		flash.Lib.getURL(new flash.net.URLRequest('http://ffmp3.sourceforge.net'));
+	function aboutMusesRadioPlayer(e: flash.events.ContextMenuEvent){
+		flash.Lib.getURL(new flash.net.URLRequest('http://www.musesradioplayer.com'));
 	}
 	
 }

@@ -1,3 +1,29 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+//  Muses Radio Player - Radio Streaming player written in Haxe.
+//
+//  Copyright (C) 2009-2012  Federico Bricker
+//
+//  This program is free software; you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation; either version 2 of the License, or
+//  (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License along
+//  with this program; if not, write to the Free Software Foundation, Inc.,
+//  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+//
+//  This Project was initially based on FOggPlayer by Bill Farmer. So 
+//  my special thanks to him! :)
+//
+//  Federico Bricker  f bricker [at] gmail [dot] com.
+//
+////////////////////////////////////////////////////////////////////////////////
 import flash.accessibility.Accessibility;
 import flash.events.MouseEvent;
 import flash.external.ExternalInterface;
@@ -29,7 +55,7 @@ class Player {
 		playing = false;
 		this.volume = 1;
 		this.streamUrl=url;
-        this.fallbackUrl = fallbackUrl;
+		this.fallbackUrl = fallbackUrl;
 		this.errorCount=0;
 		lastBufferingState = false;
 		this.tracker=tracker;
@@ -62,7 +88,7 @@ class Player {
 		closeSound();
 		Reflect.deleteField(this,'request');
 		request=null;
-		ui.setStatus(FFMp3PlayerStatus.stop);
+		ui.setStatus(PlayerStatus.stop);
 		playBuffer=false;
 	}
 	
@@ -140,7 +166,7 @@ class Player {
 				startSound();
 				updateVolume();
 				// Set the text to show what's happening
-				ui.setStatus(FFMp3PlayerStatus.play);
+				ui.setStatus(PlayerStatus.play);
 			}
 		}
     }
@@ -148,7 +174,7 @@ class Player {
     // Load complete event
     public function loadComplete(e){
 		// Show what's happening
-		ui.setStatus(FFMp3PlayerStatus.loadComplete);
+		ui.setStatus(PlayerStatus.loadComplete);
 		reconnect(null);
 		this.errorCount++;
     }
@@ -181,7 +207,7 @@ class Player {
     public function ioError(e : flash.events.Event ){
 		playBuffer=true;
 		stop();
-		ui.setStatus(FFMp3PlayerStatus.ioError);
+		ui.setStatus(PlayerStatus.ioError);
 		setReconnectTimer(3);
 		this.errorCount++;
     }
@@ -191,7 +217,7 @@ class Player {
 		playBuffer=true;
 		stop();
 		// Show the error
-		ui.setStatus(FFMp3PlayerStatus.securityError);	
+		ui.setStatus(PlayerStatus.securityError);	
 		setReconnectTimer(3);
 		this.errorCount++;
     }
@@ -247,9 +273,9 @@ class Player {
 		var ib:Bool=isBuffering();
 		if(lastBufferingState != ib){
 			if(ib){
-				ui.setStatus(FFMp3PlayerStatus.buffering);
+				ui.setStatus(PlayerStatus.buffering);
 			}else if(this.playing){
-				ui.setStatus(FFMp3PlayerStatus.play);
+				ui.setStatus(PlayerStatus.play);
 				forceSynchronization();
 			}
 			lastBufferingState=ib;
@@ -262,7 +288,7 @@ class Player {
 	}
 		
 	public function reportIntro() {
-		ui.setStatus(FFMp3PlayerStatus.intro, false);
+		ui.setStatus(PlayerStatus.intro, false);
 		ui.informIntroUrl(this.introUrl);
 	}
 }

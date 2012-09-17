@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
-//  FFMp3 - A simple Flash Mp3 Live Streaming player written in Haxe.
+//  Muses Radio Player - Radio Streaming player written in Haxe.
 //
 //  Copyright (C) 2009-2012  Federico Bricker
 //
@@ -28,8 +28,8 @@ import flash.system.Capabilities;
 import internationalization.AbstractLanguage;
 import internationalization.LanguageFactory;
 
-// FFMp3 Main class
-class FFMp3{
+// MusesRadioPlayer Main class
+class MusesRadioPlayer{
 
     var url					: String;
 	var introUrl	        : String;
@@ -48,12 +48,12 @@ class FFMp3{
 	var metadataLoader		: MetadataLoader;
 	var metadataUrl		    : String;
 	
-	public static var VERSION = "0.4.6b";
+	public static var VERSION = "0.4.7";
 	public static var FPS:Int = 12;
 	
     // Kick things off
     public static function main(){
-		var ffmp3 = new FFMp3();
+		var musesRadioPlayer = new MusesRadioPlayer();
     }
 
 	// Create a new Player

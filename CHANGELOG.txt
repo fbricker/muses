@@ -1,4 +1,10 @@
-﻿v0.4.6
+﻿v0.4.7
+* Renamed class & variables (since we've renamed the project).
+* Added missing LGPL headers to every source file.
+* Renewed tracking system (simplified & pointed to the new project domain).
+* Added Slovene translation
+
+v0.4.6
 * Added Swedish translation
 * Improved Mp3 audio syncronization
 * Fixed bug related to tracking when streaming server is down

@@ -1,4 +1,4 @@
-﻿////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 //
 //  Muses Radio Player - Radio Streaming player written in Haxe.
 //
@@ -24,19 +24,14 @@
 //  Federico Bricker  f bricker [at] gmail [dot] com.
 //
 ////////////////////////////////////////////////////////////////////////////////
-package internationalization;
-
-class Finnish extends AbstractLanguage {
-	public function new(){
-		super();
-		setText("play","Toista");
-		setText("stop","Pysäytä");
-		setText("ioError","Verkkoyhteysvirhe");
-		setText("loadComplete","Lataaminen päättyi");
-		setText("soundComplete","Äänentoisto päättyi");
-		setText("volume","Äänenvoimakkuus");
-		setText("securityError","Tietoturvavirhe");
-		setText("about","Tietoja Muses Radio Player:sta...");
-		setText("version","Versio");
-	}
+// State enum for the ButtonStates
+enum PlayerStatus{
+    play;
+    stop;
+    ioError;
+	loadComplete;
+	soundComplete;
+	securityError;
+	buffering;
+	intro;
 }

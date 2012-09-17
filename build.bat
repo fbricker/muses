@@ -1,4 +1,4 @@
 @echo off
-haxe -cp . FFMp3.hxml
+haxe -cp . MusesRadioPlayer.hxml
 echo Done...
 pause
