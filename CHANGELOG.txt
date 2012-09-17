@@ -3,6 +3,7 @@
 * Added missing LGPL headers to every source file.
 * Renewed tracking system (simplified & pointed to the new project domain).
 * Added Slovene translation
+* Renamed Javascript Callback Function from ffmp3Callback to musesCallback
 
 v0.4.6
 * Added Swedish translation
