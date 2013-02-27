@@ -60,7 +60,7 @@ class MetadataLoader {
 			counter = 0;
 			var url:String=null;
 			url = switch(metadataSource) {
-				case "icecast": player.getCurrentUrl() + ".xspf";
+				case "icecast": player.getCurrentUrl().split("?")[0] + ".xspf";
 				case "streamtheworld": mUrl + "&" + Date.now().getTime();
 				case "shoutcast": StringTools.replace(player.getCurrentUrl(), ';', '');
 			}
