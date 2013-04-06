@@ -31,14 +31,16 @@ import skins.configurableComponents.TitleText;
 import skins.configurableComponents.StatusLed;
 
 class Configurable extends UI {
-	var playButton    : Button;
-	var stopButton    : Button;
-	var statusLed	  : StatusLed;
-	var skin		  : Xml;
-	var skinLoader    : flash.net.URLLoader;
-	var skinFolder	  : String;
-	var baseURL       : String;
-	var skinDomain	  : String;
+	var playButton	: Button;
+	var stopButton	: Button;
+	var statusLed	: StatusLed;
+	var skin		: Xml;
+	var skinLoader	: flash.net.URLLoader;
+	var skinFolder	: String;
+	var baseURL		: String;
+	var skinDomain	: String;
+	var togglePlayStopEnabled : Bool;
+	var lastToggleValue	:Bool;
 
 	public static function parseInt(s:String, defaultVal:Int):Int{
 		return (s==null)?defaultVal:Std.parseInt(s);
@@ -114,7 +116,8 @@ class Configurable extends UI {
 	}
 	
 	function loadSkinEvent(e: flash.events.Event){
-		var loader=cast(e.target,flash.net.URLLoader);
+		var loader = cast(e.target, flash.net.URLLoader);
+		var togglePlayStop:Bool = false;
 		skin=Xml.parse(loader.data);
 		for( base in skin.elements() ) {
 			if(base.nodeName.toLowerCase()!='ffmp3-skin' && base.nodeName.toLowerCase()!='muses-skin'){ // CHECK THIS IS A VALID XML
@@ -122,6 +125,8 @@ class Configurable extends UI {
 			}
 			XmlToLower(base); // CHANGE EVERY ATTRIBUTE TO LOWERCASE JUST IN CASE
 			skinFolder = (base.get('folder') == null)?(""):(base.get('folder'));
+			togglePlayStop = (base.get('toggleplaystop') == null)?false:(base.get('toggleplaystop') == 'true');
+			if (togglePlayStop) enablePlayStopToggle();
 			if (skinFolder.length>0 && skinFolder.charAt(skinFolder.length-1) != '/') skinFolder += "/";
 			skinFolder = makeAbsolute(skinFolder);
 			for( elem in base.elements() ) {
@@ -143,7 +148,9 @@ class Configurable extends UI {
 	
 	public function new(pars : Dynamic<String>){
 		super();
-
+		togglePlayStopEnabled = false;
+		lastToggleValue = false;
+		
 		// Create the buttons and volume control
 		playButton    = new Button();
 		stopButton    = new Button();
@@ -179,6 +186,18 @@ class Configurable extends UI {
 		playButton.addEventListener(flash.events.MouseEvent.CLICK, player.playSound);
 		stopButton.addEventListener(flash.events.MouseEvent.CLICK, player.stopSound);
 		volumeControl.addEventListener(ValueChangeEvent.VALUE_CHANGE,player.changeVolume);		
+	}
+	
+	private function enablePlayStopToggle() {
+		togglePlayStopEnabled = true;
+		togglePlayStop(lastToggleValue);
+	}
+	
+	public override function togglePlayStop(play:Bool) {
+		lastToggleValue = play;
+		if (!togglePlayStopEnabled) return;
+		playButton.visible = !play;
+		stopButton.visible = play;
 	}
 	
 	override public function setStatus(status:PlayerStatus, autorestore:Bool = true){

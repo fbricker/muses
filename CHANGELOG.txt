@@ -1,4 +1,30 @@
-﻿v0.4.7
+﻿v0.4.8
+* Added metadataproxy option to allow getting metadata on Mp3 streamings from servers
+  without crossdomain.xml file configured.
+* Added reconnecttime option to allow setting the reconnection interval that the player
+  use to avoid memory consumption (by default is 3600 secs [1 hour]).
+* Added skin name to tracking information.
+* Allow skins that toggles between Play and Stop buttons instead of displaying both
+  buttons all the time.
+* Unified the original three swf (muses-config.swf, muses-tiny.swf and muses.swf)
+  into one single file (muses.swf).
+  Now you have to add the skin=default or skin=tiny if you want to use those original
+  skins.
+* Added allowDomain('*'); to allow js calls from another domain (required for hosted
+  version via mrp.js).
+* Added API to control the player inside mrp.js (hosted code). You can now call
+  MRP.play(); MRP.stop(), MRP.setVolume(44), MRP.setCallbackFunction(...) etc.
+* Fixed Status Led bug (some times stayed on even after stopping the player).
+* Added control functions to MPR.js including:
+	MRP.play();
+	MRP.stop();
+	MRP.setVolume(volume); // example MRP.setVolume(65);
+	MRP.showInfo(text);
+	MRP.setTitle(text);
+	MRP.setUrl(url);
+	MRP.MRP.setFallbackUrl(fallbackUrl);
+
+v0.4.7
 * Renamed class & variables (since we've renamed the project).
 * Added missing LGPL headers to every source file.
 * Renewed tracking system (simplified & pointed to the new project domain).

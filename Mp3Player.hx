@@ -36,8 +36,8 @@ class Mp3Player extends Player {
 	var trafficControlTimer : Timer;
 	var lastByteCount:UInt;
 	
-	public function new(ui:UI,url:String,tracker:Tracker,fallbackUrl:String,introUrl:String){
-		super(ui,url,tracker,fallbackUrl,introUrl);
+	public function new(ui:UI,url:String,tracker:Tracker,fallbackUrl:String,introUrl:String,reconnectTime:Int){
+		super(ui,url,tracker,fallbackUrl,introUrl,reconnectTime);
 		trafficControlTimer = new Timer(20000, 1);
 		trafficControlTimer.addEventListener(flash.events.TimerEvent.TIMER, trafficControl);
 		switchChannelTimer = new Timer(100, 1);
@@ -112,6 +112,7 @@ class Mp3Player extends Player {
 			channel = null;			
 			super.stop();
 		}
+		ui.setStatus(PlayerStatus.stop);
 		playBuffer=false;
 	}
 	

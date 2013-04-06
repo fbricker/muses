@@ -40,9 +40,9 @@ class OggPlayer extends Player {
         org.xiph.fvorbis.FuncResidue._s_init();
     }
 	
-	public function new(ui:UI,url:String,tracker:Tracker,fallbackUrl:String,introUrl:String){
+	public function new(ui:UI,url:String,tracker:Tracker,fallbackUrl:String,introUrl:String,reconnectTime:Int){
 		init_statics();
-		super(ui,url,tracker,fallbackUrl,introUrl);
+		super(ui,url,tracker,fallbackUrl,introUrl,reconnectTime);
 		fileextension="ogg";
 		trafficControlTimer = new Timer(20000, 1);
 		trafficControlTimer.addEventListener(flash.events.TimerEvent.TIMER, trafficControl);

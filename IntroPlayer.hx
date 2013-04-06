@@ -62,8 +62,8 @@ class IntroPlayer {
 	public function stopSound(){
 		if(channel!=null){
 			channel.stop();
+			channel = null;
 		}
-		channel = null;
 	}
 	
 	public function setVolume(volume:Float){
@@ -76,9 +76,7 @@ class IntroPlayer {
 	}
 	
     function soundComplete(e){
-		if(channel!=null){
-			channel.stop();
-		}
+		stopSound();
 		streamingPlayer.playSound();
 	}
 
