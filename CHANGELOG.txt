@@ -33,7 +33,7 @@ v0.4.7
 
 v0.4.6
 * Added Swedish translation
-* Improved Mp3 audio syncronization
+* Improved Mp3 audio synchronization
 * Fixed bug related to tracking when streaming server is down
 * Migrated from CVS to GIT repository / Published sources on GitHub :)
 
