@@ -47,9 +47,12 @@ class Player {
 	var errorCount : Int;
     var request   : flash.net.URLRequest;
 	var soundObject : flash.events.IEventDispatcher;
+	var reconnectTime : Int;
 
-	private function new(ui:UI,url:String,tracker:Tracker,fallbackUrl:String,introUrl:String){
-		this.ui=ui;
+	private function new(ui:UI, url:String, tracker:Tracker, fallbackUrl:String, introUrl:String, reconnectTime:Int ) {
+		this.ui = ui;
+		this.reconnectTime = reconnectTime;
+		reconnectTimer = null;
 		this.introUrl = introUrl;
 		playBuffer = false;
 		playing = false;
@@ -128,13 +131,15 @@ class Player {
     public function playSound(e = null) {
 		if(e!=null && e.type==flash.events.MouseEvent.CLICK){
 			introPlayer.startSound();
+			ui.togglePlayStop(true);
 			return;
 		}
+		
+		setReconnectTimer();
 		if(playing){
 			return;
 		}
 		playing=true;
-		setReconnectTimer();
 		
 		// If there's a sound
 		playBuffer=true; 
@@ -188,9 +193,10 @@ class Player {
 		stopReconnectTimer();
 		if(e!=null && e.type==flash.events.MouseEvent.CLICK ){
 			introPlayer.stopSound();
+			ui.togglePlayStop(false);
 		}
 		stop();
-		playing=false;
+		playing = false;
     }
 	
 	// Stop by js
@@ -208,7 +214,7 @@ class Player {
 		playBuffer=true;
 		stop();
 		ui.setStatus(PlayerStatus.ioError);
-		setReconnectTimer(3);
+		setReconnectTimer(5);
 		this.errorCount++;
     }
 	
@@ -218,7 +224,7 @@ class Player {
 		stop();
 		// Show the error
 		ui.setStatus(PlayerStatus.securityError);	
-		setReconnectTimer(3);
+		setReconnectTimer(5);
 		this.errorCount++;
     }
 
@@ -238,7 +244,7 @@ class Player {
     }
 	
 	// Reconect
-	public function reconnect(e){
+	public function reconnect(e) {
 		playBuffer=true;
 		stopSound(e);
 		playSound(e);
@@ -248,19 +254,18 @@ class Player {
 	public function setReconnectTimer(time:Int = 0){
 		// If there's a timer, stop it
 		this.stopReconnectTimer();
-		if(time==0){
-			time=1800;
-		}
-		// Create a new timer, 2 secs
-		reconnectTimer = new Timer(2000*time, 1);
+		if(time==0) time=reconnectTime;
+		// Create a new timer, [time]secs
+		reconnectTimer = new Timer(1000*time, 1);
 		reconnectTimer.addEventListener(flash.events.TimerEvent.TIMER, reconnect);
-		reconnectTimer.start();		
+		reconnectTimer.start();	
 	}
 	
 	// Stop the reconnection timer
-	public function stopReconnectTimer(){
-		if (reconnectTimer != null){
+	public function stopReconnectTimer() {
+		if( reconnectTimer != null ){
 			reconnectTimer.stop();
+			reconnectTimer = null;
 		}
 	}
 	
@@ -282,11 +287,11 @@ class Player {
 		}
 	}
 	
-	//
+	
 	public function isPlaying() : Bool {
 		return playing;
 	}
-		
+	
 	public function reportIntro() {
 		ui.setStatus(PlayerStatus.intro, false);
 		ui.informIntroUrl(this.introUrl);

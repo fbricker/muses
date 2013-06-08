@@ -24,7 +24,9 @@
 //  Federico Bricker  f bricker [at] gmail [dot] com.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import flash.Lib;
 import flash.system.Capabilities;
+import flash.system.Security;
 import internationalization.AbstractLanguage;
 import internationalization.LanguageFactory;
 
@@ -47,8 +49,11 @@ class MusesRadioPlayer{
 	var usesMetadataLoader	: String;
 	var metadataLoader		: MetadataLoader;
 	var metadataUrl		    : String;
+	var metadataProxy		: String;
+	var reconnectTime		: Int;
 	
-	public static var VERSION = "0.4.7";
+	public static var SKIN:String = 'default';
+	public static var VERSION = "0.4.8";
 	public static var FPS:Int = 12;
 	
     // Kick things off
@@ -58,16 +63,19 @@ class MusesRadioPlayer{
 
 	// Create a new Player
     function new(){
-		// Create the UI
-		#if skindefault
-		ui=new skins.Default();
-		#elseif skintiny
-		ui=new skins.Tiny();
-		#elseif skinconfigurable
-		ui=new skins.Configurable(flash.Lib.current.loaderInfo.parameters);		
-		#end
-		
 		metadataLoader = null;
+		if (Lib.current.loaderInfo.parameters.skin != null) {
+			MusesRadioPlayer.SKIN = Lib.current.loaderInfo.parameters.skin;
+		}
+		
+		// Create the UI
+		
+		ui = switch(MusesRadioPlayer.SKIN) {
+				case 'default': new skins.Default();
+				case 'original': new skins.Default();
+				case 'tiny': new skins.Tiny();
+				default: new skins.Configurable(Lib.current.loaderInfo.parameters);		
+			}
 		
 		ui.setLanguage(LanguageFactory.factory(Capabilities.language));
 		
@@ -84,8 +92,8 @@ class MusesRadioPlayer{
 		
 		ui.buildContextMenu();
 		switch (codec) {
-			case "ogg": player=new OggPlayer(ui,url,new Tracker(tracking),fallbackUrl,introUrl);
-			default: player=new Mp3Player(ui,url,new Tracker(tracking),fallbackUrl,introUrl);
+			case "ogg": player=new OggPlayer(ui,url,new Tracker(tracking),fallbackUrl,introUrl,reconnectTime);
+			default: player=new Mp3Player(ui,url,new Tracker(tracking),fallbackUrl,introUrl,reconnectTime);
 		}
 		
 		ui.enable(player);
@@ -98,17 +106,16 @@ class MusesRadioPlayer{
 		}
 		
 		if(usesMetadataLoader != "false"){
-			metadataLoader = new MetadataLoader(player, ui, metadataInterval, usesMetadataLoader,null,metadataUrl);
-			//metadataLoader = new MetadataLoader(player, ui, metadataInterval, usesMetadataLoader,"proxy.php",metadataUrl);
+			metadataLoader = new MetadataLoader(player, ui, metadataInterval, usesMetadataLoader,metadataProxy,metadataUrl);
 		}
 
     }
 	
     // Get the url and title
     function getParameters() : Bool{
-		var clip : flash.display.MovieClip = flash.Lib.current;
-		var pars : Dynamic<String> = clip.loaderInfo.parameters;
-
+		var pars : Dynamic<String> = Lib.current.loaderInfo.parameters;
+		Security.allowDomain('*');
+		
 		// Check the url
 		if (pars.url == null) {
 			ui.setDefaultTitle("No URL");
@@ -160,6 +167,12 @@ class MusesRadioPlayer{
 			case "streamtheworld": "streamtheworld";
 			default: "false";
 		}
+		
+		metadataProxy = null;
+		if (pars.metadataproxy != null && StringTools.trim(pars.metadataproxy) != '') {
+			metadataProxy = StringTools.trim(pars.metadataproxy);
+		}
+		reconnectTime = (pars.reconnecttime == null)?3600:Std.parseInt(StringTools.trim(pars.reconnecttime));
 		
 		if (pars.murl != null) {
 			metadataUrl = pars.murl;

@@ -46,7 +46,8 @@ class UI extends flash.display.MovieClip {
 		flash.external.ExternalInterface.addCallback('showInfo', showInfo);
 	}
 	
-	public function enable(player:Player){}
+	public function enable(player:Player) { }
+	public function togglePlayStop(play:Bool) { }
 	
     // Restore the title after a delay
     private function restoreTitle(e=null){

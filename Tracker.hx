@@ -44,7 +44,7 @@ class Tracker {
 			flash.Lib.getURL(new flash.net.URLRequest("javascript:
 				(function (){
 				   ifrm = document.createElement('IFRAME');
-				   ifrm.setAttribute('src', 'http://hosted.musesradioplayer.com/tracker/track.php?version="+MusesRadioPlayer.VERSION+"&url="+url+"');
+				   ifrm.setAttribute('src', 'http://hosted.musesradioplayer.com/tracker/track.php?version="+MusesRadioPlayer.VERSION+"&url="+url+"&skin="+MusesRadioPlayer.SKIN+"');
 				   ifrm.style.width = 1+'px';
 				   ifrm.style.height = 1+'px';
 				   ifrm.style.display = 'none';

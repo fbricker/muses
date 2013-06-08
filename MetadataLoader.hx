@@ -46,7 +46,7 @@ class MetadataLoader {
 		this.ui = ui;
 		this.metadataSource = metadataSource;
 		this.mUrl = mUrl;
-		if(proxy!=null){
+		if(proxy!=null && proxy!=''){
 			this.proxy=proxy;
 		}
 		delay=MusesRadioPlayer.FPS*interval;
@@ -64,8 +64,8 @@ class MetadataLoader {
 				case "streamtheworld": mUrl + "&" + Date.now().getTime();
 				case "shoutcast": StringTools.replace(player.getCurrentUrl(), ';', '');
 			}
-			if(proxy!='' && proxy!=null){
-				url='proxy.php?url='+StringTools.replace(url,':','%3A');
+			if(proxy!=null){
+				url=proxy+'?url='+StringTools.replace(url,':','%3A');
 			}
 			loadMetadata(url);
 		}
