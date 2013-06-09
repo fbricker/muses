@@ -29,6 +29,7 @@ import skins.tinyComponents.PlayButton;
 import skins.tinyComponents.StopButton;
 import skins.tinyComponents.TitleText;
 import skins.tinyComponents.VolumeControl;
+import flash.accessibility.AccessibilityProperties;
 
 class Tiny extends UI {
 	var playButton    : PlayButton;
@@ -40,6 +41,12 @@ class Tiny extends UI {
 		playButton    = new PlayButton();
 		stopButton    = new StopButton();
 		volumeControl = new VolumeControl();
+		
+		// This helps blind or print-impaired users, some of whom use Screen Reader software (like JAWS)
+		playButton.accessibilityProperties = new AccessibilityProperties();
+		playButton.accessibilityProperties.name = 'Play Button';
+		stopButton.accessibilityProperties = new AccessibilityProperties();
+		stopButton.accessibilityProperties.name = 'Stop Button';
 		
 		// And the text field
 		titleText = new TitleText();

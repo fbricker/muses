@@ -29,6 +29,7 @@ import skins.defaultComponents.PlayButton;
 import skins.defaultComponents.StopButton;
 import skins.defaultComponents.VolumeControl;
 import skins.defaultComponents.TitleText;
+import flash.accessibility.AccessibilityProperties;
 
 class Default extends UI {
 	var playButton    : PlayButton;
@@ -40,6 +41,12 @@ class Default extends UI {
 		playButton    = new PlayButton();
 		stopButton    = new StopButton();
 		volumeControl = new VolumeControl();
+		
+		// This helps blind or print-impaired users, some of whom use Screen Reader software (like JAWS) 
+		playButton.accessibilityProperties = new AccessibilityProperties();
+		playButton.accessibilityProperties.name = 'Play Button';
+		stopButton.accessibilityProperties = new AccessibilityProperties();
+		stopButton.accessibilityProperties.name = 'Stop Button';
 		
 		// And the text field
 		titleText = new TitleText();

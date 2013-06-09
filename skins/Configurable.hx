@@ -29,6 +29,7 @@ import skins.configurableComponents.Button;
 import skins.configurableComponents.VolumeControl;
 import skins.configurableComponents.TitleText;
 import skins.configurableComponents.StatusLed;
+import flash.accessibility.AccessibilityProperties;
 
 class Configurable extends UI {
 	var playButton	: Button;
@@ -156,6 +157,12 @@ class Configurable extends UI {
 		stopButton    = new Button();
 		volumeControl = new VolumeControl();
 		statusLed	  = new StatusLed();
+		
+		// This helps blind or print-impaired users, some of whom use Screen Reader software (like JAWS) 
+		playButton.accessibilityProperties = new AccessibilityProperties();
+		playButton.accessibilityProperties.name = 'Play Button';
+		stopButton.accessibilityProperties = new AccessibilityProperties();
+		stopButton.accessibilityProperties.name = 'Stop Button';
 		
 		// And the text field
 		titleText = new TitleText();

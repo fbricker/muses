@@ -1,4 +1,13 @@
-﻿v0.4.8
+﻿v0.4.9 []
+* Fixed memory leak on OGG Streamings.
+* Added support for requesting metadata on icecast streaming with get parameters (tnx to Allmoz https://github.com/Allmoz)
+* Fixed bug on MRP.js (functions like MRP.stop(), MRP.play() and MRP.setVolume(...) are working fine again)
+* Support for animated Skins (can use SWF instead of static images)
+* Added Labels to Flash Buttons to help blind or print-impaired users, some of whom use Screen Reader software (like JAWS).
+* Added fallbackUrl option to the javascript MRP.js code.
+* in progres...
+
+v0.4.8 [2013-04-06]
 * Added metadataproxy option to allow getting metadata on Mp3 streamings from servers
   without crossdomain.xml file configured.
 * Added reconnecttime option to allow setting the reconnection interval that the player
@@ -22,22 +31,23 @@
 	MRP.showInfo(text);
 	MRP.setTitle(text);
 	MRP.setUrl(url);
-	MRP.MRP.setFallbackUrl(fallbackUrl);
+	MRP.setFallbackUrl(fallbackUrl);
+	MRP.setCallbackFunction(callbackFunction);
 
-v0.4.7
+v0.4.7 [2012-09-17]
 * Renamed class & variables (since we've renamed the project).
 * Added missing LGPL headers to every source file.
 * Renewed tracking system (simplified & pointed to the new project domain).
 * Added Slovene translation
 * Renamed Javascript Callback Function from ffmp3Callback to musesCallback
 
-v0.4.6
+v0.4.6 [2012-06-30]
 * Added Swedish translation
 * Improved Mp3 audio synchronization
 * Fixed bug related to tracking when streaming server is down
 * Migrated from CVS to GIT repository / Published sources on GitHub :)
 
-V0.4.5
+V0.4.5 [2012-05-19]
 * 0.4.5-r3 -> Fixed processor and memory consumption bug from 0.4.5
 * 0.4.5-r2 -> Fixed Icecast Metadata-Fetching Bug from 0.4.4
 * Added Bulgarian translation
@@ -47,7 +57,7 @@ V0.4.5
 * Add function: change title by JS
 * Created LanguageFactory class to facilitate new languages inclusions.
 
-V0.4.4
+V0.4.4 [2012-03-24]
 * Added Dead Connection Detection (if no data arrives after 20 seconds, then a
   network error is assumed)
 * Fixed Flash internal Mp3 audio synchronization loose on several cases (intro
@@ -60,7 +70,7 @@ V0.4.4
 * Set Streaming and Fallback URLs dynamically via JavaScript
   (added setUrl(url:String) and setFallbackUrl(url:String) methods to the javascript API).
 
-V0.4.3
+V0.4.3 [2012-02-05]
 * Patched OGG Library to support some cases of splitted ogg streamings with bitrate change
   (thanks to Andrew Meakovski)
   -org/xiph/foggy/Demuxer.hx (Diff: 127,128c127,128)  
@@ -72,7 +82,7 @@ V0.4.3
 * Change volume control component to decrease volume faster when reaching zero
   (provides a better use feeling).
 
-V0.4.2
+V0.4.2 [2011-10-22]
 * Ability to change text align on text information field (check the test skin XML 
   file for reference)
 * Croatian Translation (thanks to Rafael Ribar)
@@ -95,7 +105,7 @@ V0.4.2
   Javascript API work on internet explorer.
 * Replaced FlashDevelop 2 project file for FlashDevelop 3 and 4
 
-v0.4.1
+v0.4.1 [2011-10-01]
 * Dutch Translation (thanks to Gerard Hollemans)
 * Hungarian Translation (thanks to Tajti Róbert)
 * Polish Translation (thanks to Piotr Kozłowski)
@@ -106,7 +116,7 @@ v0.4.1
 * Added Fallback Signal Support (in case of error in one signal, starts using the second)
   - Check FAQ section for more details.
 
-v0.4.0
+v0.4.0 [2010-12-31]
 Changes to the Player:
 * Compatible/compilable with haXe 2.06.
 * Added VHolder mode for volume control skin component.
@@ -135,7 +145,7 @@ Changes to the Web HTML Code Generator:
 * Added Buffering Time option at the web html code generator.
 * Added JSEvents Enable/Disable Option at the web html code generator.
 
-v0.3.2
+v0.3.2 [2010-07-11]
 * Fix on CodeGenerator @ download page (now replaces spaces with %20)
 * Norwegian Translation (thanks to Erik Paulsen Skålerud)
 * Turkish Translation (thanks to Tarkan Kaya)
@@ -144,16 +154,16 @@ v0.3.2
   the play button, reported by Tarkan Kaya)
 * Added support for Javascript Events (inform player events to javascript)
 
-v0.3.1
+v0.3.1 [2010-05-10]
 * Context menu whith link to ffmp3 website.
 * More languages (FR, GER, IT)
 * Added Version String to Tracking code (Tracking remains optional).
 
-v0.3
+v0.3 [2010-05-03]
 * Configurable Skin via XML and Images
 * More Skins!
 
-v0.2
+v0.2 [2010-01-20]
 * Drag over the volume bar
 * Mouse wheel for volume bar (In FF doesn't works if wmode is enabled)
 * Status Led
@@ -175,5 +185,8 @@ v0.2
 * New Website
 * HTML Code Generator @ Website
 
-v0.1
+v0.1.1 [2009-08-22]
+* Can't remember...
+
+v0.1 [2009-07-28]
 * Can't remember...

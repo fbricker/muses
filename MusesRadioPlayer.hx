@@ -2,7 +2,7 @@
 //
 //  Muses Radio Player - Radio Streaming player written in Haxe.
 //
-//  Copyright (C) 2009-2012  Federico Bricker
+//  Copyright (C) 2009-2013  Federico Bricker
 //
 //  This program is free software; you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -59,6 +59,8 @@ class MusesRadioPlayer{
     // Kick things off
     public static function main(){
 		var musesRadioPlayer = new MusesRadioPlayer();
+		// calling garbage collector every 5 secs. just in case.
+		new haxe.Timer(5000).run = flash.system.System.gc;
     }
 
 	// Create a new Player

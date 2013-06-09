@@ -2,7 +2,7 @@
 //
 //  Muses Radio Player - Radio Streaming player written in Haxe.
 //
-//  Copyright (C) 2009-2012  Federico Bricker
+//  Copyright (C) 2009-2013  Federico Bricker
 //
 //  This program is free software; you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -90,6 +90,32 @@ class OGGSound extends flash.events.EventDispatcher {
 
 	public function close(){
 		ul.close();
+		ul.removeEventListener(flash.events.Event.OPEN, _on_open	);
+        ul.removeEventListener(flash.events.ProgressEvent.PROGRESS, _on_progress);
+        ul.removeEventListener(flash.events.Event.COMPLETE, _on_complete);
+        ul.removeEventListener(flash.events.IOErrorEvent.IO_ERROR, _on_error);
+        ul.removeEventListener(flash.events.SecurityErrorEvent.SECURITY_ERROR, _on_security);
+		
+		Reflect.deleteField(this,'asink');
+		Reflect.deleteField(this,'_pcm');
+		Reflect.deleteField(this,'_index');
+		Reflect.deleteField(this,'dmx');
+		Reflect.deleteField(this,'vi');
+		Reflect.deleteField(this,'vc');
+		Reflect.deleteField(this,'vd');
+		Reflect.deleteField(this,'playBuffer');
+		Reflect.deleteField(this,'ul');
+		
+		ul = null;
+		asink = null;
+		_pcm = null;
+		_index = null;
+		dmx = null;
+		vi = null;
+		vc = null;
+		vd = null;
+		vb = null;
+		playBuffer = null;
 	}
 	
 	public function load(request:flash.net.URLRequest){
