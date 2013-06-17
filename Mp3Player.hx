@@ -33,13 +33,9 @@ class Mp3Player extends Player {
 	var oldPlayingChannel : flash.media.SoundChannel;
 	var oldPlayingPosition : Float;
 	var switchChannelTimer : Timer;
-	var trafficControlTimer : Timer;
-	var lastByteCount:UInt;
 	
 	public function new(ui:UI,url:String,tracker:Tracker,fallbackUrl:String,introUrl:String,reconnectTime:Int){
 		super(ui,url,tracker,fallbackUrl,introUrl,reconnectTime);
-		trafficControlTimer = new Timer(20000, 1);
-		trafficControlTimer.addEventListener(flash.events.TimerEvent.TIMER, trafficControl);
 		switchChannelTimer = new Timer(100, 1);
 		switchChannelTimer.addEventListener(flash.events.TimerEvent.TIMER, switchChannels);
 	}
@@ -50,7 +46,6 @@ class Mp3Player extends Player {
 	}
 	
 	override function closeSound() {
-		trafficControlTimer.stop();
 		sound.close();
 		Reflect.deleteField(this,'sound');
 		sound = null;
@@ -71,17 +66,8 @@ class Mp3Player extends Player {
 		return sound.length;
 	}
 	
-	function trafficControl(e = null) {
-		if (e == null) {
-			lastByteCount = 0;
-		}
-		if (lastByteCount == sound.bytesLoaded && e!=null) {
-			ioError(null);
-		}else{
-			lastByteCount = sound.bytesLoaded;
-			trafficControlTimer.reset();
-			trafficControlTimer.start();
-		}
+	override function getProgress() : Float {
+		return sound.bytesLoaded;
 	}
 	
 	override private function updateVolume(){

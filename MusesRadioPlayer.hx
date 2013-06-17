@@ -53,7 +53,7 @@ class MusesRadioPlayer{
 	var reconnectTime		: Int;
 	
 	public static var SKIN:String = 'default';
-	public static var VERSION = "0.4.8";
+	public static var VERSION = "1.0b";
 	public static var FPS:Int = 12;
 	
     // Kick things off
@@ -94,8 +94,9 @@ class MusesRadioPlayer{
 		
 		ui.buildContextMenu();
 		switch (codec) {
-			case "ogg": player=new OggPlayer(ui,url,new Tracker(tracking),fallbackUrl,introUrl,reconnectTime);
-			default: player=new Mp3Player(ui,url,new Tracker(tracking),fallbackUrl,introUrl,reconnectTime);
+			case "ogg": player = new OggPlayer(ui, url, new Tracker(tracking), fallbackUrl, introUrl, reconnectTime);
+			case "aac": player = new AacPlayer(ui, url, new Tracker(tracking), fallbackUrl, introUrl);
+			default: 	player = new Mp3Player(ui, url, new Tracker(tracking), fallbackUrl, introUrl, reconnectTime);
 		}
 		
 		ui.enable(player);

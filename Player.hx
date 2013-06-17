@@ -48,6 +48,8 @@ class Player {
     var request   : flash.net.URLRequest;
 	var soundObject : flash.events.IEventDispatcher;
 	var reconnectTime : Int;
+	private var trafficControlTimer : Timer;
+	private var lastByteCount : Float;
 
 	private function new(ui:UI, url:String, tracker:Tracker, fallbackUrl:String, introUrl:String, reconnectTime:Int ) {
 		this.ui = ui;
@@ -76,6 +78,9 @@ class Player {
 		flash.external.ExternalInterface.addCallback('setUrl', setUrl);
 		flash.external.ExternalInterface.addCallback('setFallbackUrl', setFallbackUrl);
 		flash.external.ExternalInterface.addCallback('setTitle', setTitle);
+
+		trafficControlTimer = new Timer(20000, 1);
+		trafficControlTimer.addEventListener(flash.events.TimerEvent.TIMER, trafficControl);	
 	}
 
 	function isBuffering():Bool { return false; }
@@ -85,9 +90,11 @@ class Player {
 	function loadSound(request:flash.net.URLRequest){}
 	function startSound(){}
 	private function updateVolume(){}
-	private function setMetadata(e:MetadataEvent){}
+	private function setMetadata(e:MetadataEvent) { }
+	private function getProgress():Float { trace("Missing getProgress implementation"); return 0; }
 	
 	public function stop(){
+		trafficControlTimer.stop();
 		closeSound();
 		Reflect.deleteField(this,'request');
 		request=null;
@@ -210,7 +217,7 @@ class Player {
 	}
 	
     // IO error
-    public function ioError(e : flash.events.Event ){
+    public function ioError(e : flash.events.Event ) {
 		playBuffer=true;
 		stop();
 		ui.setStatus(PlayerStatus.ioError);
@@ -255,6 +262,7 @@ class Player {
 		// If there's a timer, stop it
 		this.stopReconnectTimer();
 		if(time==0) time=reconnectTime;
+		if(time==0) return;
 		// Create a new timer, [time]secs
 		reconnectTimer = new Timer(1000*time, 1);
 		reconnectTimer.addEventListener(flash.events.TimerEvent.TIMER, reconnect);
@@ -296,4 +304,19 @@ class Player {
 		ui.setStatus(PlayerStatus.intro, false);
 		ui.informIntroUrl(this.introUrl);
 	}
+
+	private function trafficControl(e = null) {
+		if (e == null) {
+			lastByteCount = 0;
+		}
+		var progress = getProgress();
+		if (lastByteCount == progress && e!=null) {
+			ioError(null);
+		}else{
+			lastByteCount = progress;
+			trafficControlTimer.reset();
+			trafficControlTimer.start();
+		}
+	}
+	
 }

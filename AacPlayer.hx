@@ -24,61 +24,48 @@
 //  Federico Bricker  f bricker [at] gmail [dot] com.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import flash.utils.Timer;
 
-class OggPlayer extends Player {
+import flash.net.URLRequest;
+import aac.AACSound;
+
+class AacPlayer extends Player {
 	
-	var sound(default,null): OGGSound;
-
-    static function init_statics() : Void {
-        org.xiph.fogg.Buffer._s_init();
-        org.xiph.fvorbis.FuncFloor._s_init();
-        org.xiph.fvorbis.FuncMapping._s_init();
-        org.xiph.fvorbis.FuncTime._s_init();
-        org.xiph.fvorbis.FuncResidue._s_init();
-    }
+	var sound(default,null): AACSound;
 	
-	public function new(ui:UI,url:String,tracker:Tracker,fallbackUrl:String,introUrl:String,reconnectTime:Int){
-		init_statics();
-		super(ui,url,tracker,fallbackUrl,introUrl,reconnectTime);
-		fileextension="ogg";
-	}
-
-	override function getProgress() : Float {
-		return sound.bytesLoaded;
-	}
+	public function new(ui:UI,url:String,tracker:Tracker,fallbackUrl:String,introUrl:String){
+		super(ui,url,tracker,fallbackUrl,introUrl,0);
+		fileextension="aac";
+	}	
 	
 	override function createSoundObject(){
-		sound = new OGGSound();
-		soundObject=sound;
-		sound.addEventListener(MetadataEvent.METADATA_EVENT,setMetadata);
+		sound=new AACSound(getUrl());
+		soundObject = sound;
+		// this wont happen until icecast and shoutcast accepts Icy Metadata as a get parameter
+		//sound.addEventListener(MetadataEvent.METADATA_EVENT,setMetadata);
 	}
 	
-	override function closeSound(){
+	override function closeSound() {
 		if(sound!=null){
-			sound.close();
 			Reflect.deleteField(this,'sound');
 			sound=null;
 		}
-		Reflect.deleteField(this,'soundObject');
 		soundObject=null;
 	}
 	
 	override function loadSound(request:flash.net.URLRequest){
-		if(sound!=null){
-			sound.load(request);
-		}
+		return;
+	}
+
+	override function getProgress() : Float {
+		return sound.getProgress();
 	}
 	
 	override function startSound(){
 		if (sound != null) {
+			sound.setBufferingTime(buffering);
 			sound.play();
 			trafficControl(null);
 		}
-	}
-	
-	override function soundLength():Float{
-		return sound.length;
 	}
 	
 	override private function updateVolume(){
@@ -95,7 +82,6 @@ class OggPlayer extends Player {
 		if(sound!=null){
 			sound.stop();
 		}
-		trafficControlTimer.stop();
 		super.stop();
 	}
 	
