@@ -1,7 +1,7 @@
 Muses Radio Player
 ==================
 
-The Flash MP3/OGG Live Stream Player.
+The Flash MP3/OGG/AAC Live Stream Player.
 
 
 Here you can find the source code from versions 0.4.6 and above. For older versions please visit https://sourceforge.net/projects/ffmp3/files/
@@ -9,7 +9,7 @@ Here you can find the source code from versions 0.4.6 and above. For older versi
 
 If you're trying to make live audio streaming with shoutcast/icecast, work on all major browsers in all major OS maybe you're needing this.
 Live Mp3/OGG Flash Player that works great with Shoutcast and Icecast 2. It has some interesting and necessary features like reconnect on network errors to make sure users never get silence and cache management to avoid memory huge memory consumption.
-Developed in haXe, this project only needs Flash 10 plugin (or newer) to work.
+Developed in haXe, this project only needs Flash 10.1 plugin (or newer) to work.
 
 
 http://www.musesradioplayer.com | Twitter: @MusesPlayer
@@ -17,9 +17,9 @@ http://www.musesradioplayer.com | Twitter: @MusesPlayer
 
 License
 =======
-Muses Radio Player - A simple Flash Mp3 Live Streaming player written in Haxe.
+Muses Radio Player - A simple Flash MP3/OGG/AAC Live Streaming player written in Haxe.
 
-Copyright (C) 2009-2012 Federico Bricker
+Copyright (C) 2009-2013 Federico Bricker
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
