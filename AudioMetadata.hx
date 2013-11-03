@@ -50,12 +50,12 @@ class AudioMetadata {
 	}
 	
 	public function getJson():String{
-		return  '{title:"'+StringTools.replace(title,'"',"'")
-		     +'",artist:"'+StringTools.replace(artist,'"',"'")
-		      +'",album:"'+StringTools.replace(album,'"',"'")
-		      +'",genre:"'+StringTools.replace(genre,'"',"'")
-		    +'",comment:"'+StringTools.replace(comment,'"',"'")
-		    +'",encoder:"'+StringTools.replace(encoder,'"',"'")
-		       +'",year:"'+StringTools.replace(year,'"',"'")+'"}';
+		return  '{"title":"'+StringTools.replace(title,'"',"'")
+				+'","artist":"'+StringTools.replace(artist,'"',"'")
+				+'","album":"'+StringTools.replace(album,'"',"'")
+				+'","genre":"'+StringTools.replace(genre,'"',"'")
+				+'","comment":"'+StringTools.replace(comment,'"',"'")
+				+'","encoder":"'+StringTools.replace(encoder,'"',"'")
+				+'","year":"'+StringTools.replace(year,'"',"'")+'"}';
 	}
 }

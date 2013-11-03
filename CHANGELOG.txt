@@ -9,6 +9,7 @@
 * Added Chinese Translation (thx. to anonimous contribution)
 * Added Czech Translation (thx. to Ondřej Kolář)
 * Added new Official and Comminity Skins.
+* Fixed bug on Metadata-Json event (json object was not valid).
 * in progres...
 
 v1.0b [2013-06-16]
