@@ -119,14 +119,14 @@ class Mapping0 extends FuncMapping {
                 var testA : Int = info.coupling_ang[i] = opb.read(ilog2(vi.channels));
                 if (((((testM < 0) || (testA < 0)) || (testM == testA)) || (testM >= vi.channels)) || (testA >= vi.channels)) {
                     info.free();
-                    return;
+                    return null;
                 };
                 i++;
             };
         };
         if (opb.read(2) > 0) {
             info.free();
-            return;
+            return null;
         };
         if (info.submaps > 1) {
             // for-while;
@@ -135,7 +135,7 @@ class Mapping0 extends FuncMapping {
                 info.chmuxlist[i] = opb.read(4);
                 if (info.chmuxlist[i] >= info.submaps) {
                     info.free();
-                    return;
+                    return null;
                 };
                 i++;
             };
@@ -146,17 +146,17 @@ class Mapping0 extends FuncMapping {
             info.timesubmap[i] = opb.read(8);
             if (info.timesubmap[i] >= vi.times) {
                 info.free();
-                return;
+                return null;
             };
             info.floorsubmap[i] = opb.read(8);
             if (info.floorsubmap[i] >= vi.floors) {
                 info.free();
-                return;
+                return null;
             };
             info.residuesubmap[i] = opb.read(8);
             if (info.residuesubmap[i] >= vi.residues) {
                 info.free();
-                return;
+                return null;
             };
             i++;
         };

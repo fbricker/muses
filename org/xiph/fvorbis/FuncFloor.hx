@@ -22,11 +22,13 @@ class FuncFloor {
     // modifiers: abstract
     public function unpack(vi : Info, opb : Buffer) : Dynamic {
         throw "UnimplementedAbstractMethod";
+        return null;
     }
 
     // modifiers: abstract
     public function look(vd : DspState, mi : InfoMode, i : Dynamic) : Dynamic {
         throw "UnimplementedAbstractMethod";
+        return null;
     }
 
     // modifiers: abstract
@@ -53,6 +55,7 @@ class FuncFloor {
     // modifiers: abstract
     public function inverse1(vb : Block, i : Dynamic, memo : Dynamic) : Dynamic {
         throw "UnimplementedAbstractMethod";
+        return null;
     }
 
     // modifiers: abstract

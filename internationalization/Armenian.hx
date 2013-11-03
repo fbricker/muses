@@ -1,8 +1,8 @@
-////////////////////////////////////////////////////////////////////////////////
+﻿////////////////////////////////////////////////////////////////////////////////
 //
 //  Muses Radio Player - Radio Streaming player written in Haxe.
 //
-//  Copyright (C) 2009-2012  Federico Bricker
+//  Copyright (C) 2009-2013  Federico Bricker
 //
 //  This program is free software; you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -26,23 +26,18 @@
 ////////////////////////////////////////////////////////////////////////////////
 package internationalization;
 
-class AbstractLanguage {
-	private var byText:Map<String,String>;
-	
+class Armenian extends AbstractLanguage {
 	public function new(){
-		byText=new Map<String,String>();
-	}
-	
-	public function getText(key:String):String{
-		return byText.get(key);
-	}
-	
-	public function getTextByStatus(status:PlayerStatus):String{
-		return getText(Type.enumConstructor(status));
-		
-	}
-	
-	function setText(key,text:String){
-		byText.set(key,text);
+		super();
+		setText("play","Նվագարկել");
+		setText("stop", "Կանգնեցնել");
+		setText("intro", "Ներածություն");
+		setText("ioError","Ցանցային սխալ");
+		setText("loadComplete","Սխալ. բեռնումն ավարտված է");
+		setText("soundComplete","Սխալ. նվագարկումն ավարտված է");
+		setText("volume","Ձայնի բարձրություն");
+		setText("securityError","Անվտանգության սխալ");
+		setText("about","«Muses» ռադիո նվագարկչի մասին");
+		setText("version","Տարբերակ");
 	}
 }

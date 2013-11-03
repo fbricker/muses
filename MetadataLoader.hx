@@ -59,10 +59,11 @@ class MetadataLoader {
 		if(counter>=delay && player.isPlaying()){
 			counter = 0;
 			var url:String=null;
-			url = switch(metadataSource) {
+			url = switch(metadataSource) {			
 				case "icecast": player.getCurrentUrl().split("?")[0] + ".xspf";
 				case "streamtheworld": mUrl + "&" + Date.now().getTime();
 				case "shoutcast": StringTools.replace(player.getCurrentUrl(), ';', '');
+				default: null;
 			}
 			if(proxy!=null){
 				url=proxy+'?url='+StringTools.replace(url,':','%3A');
@@ -78,7 +79,8 @@ class MetadataLoader {
 		this.fileLoader.addEventListener(Event.COMPLETE, switch(metadataSource) {
 			case "icecast": loadIcecastEvent;
 			case "streamtheworld": loadStreamTheWorldEvent;
-			case "shoutcast": loadShoutcastEvent; } );
+			case "shoutcast": loadShoutcastEvent;
+			default: null; } );
 		fileLoader.load(urlRequest);
 	}
 	

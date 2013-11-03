@@ -38,9 +38,9 @@ class OggPlayer extends Player {
         org.xiph.fvorbis.FuncResidue._s_init();
     }
 	
-	public function new(ui:UI,url:String,tracker:Tracker,fallbackUrl:String,introUrl:String,reconnectTime:Int){
+	public function new(ui:UI,url:String,tracker:Tracker,fallbackUrl:String,introUrl:String){
 		init_statics();
-		super(ui,url,tracker,fallbackUrl,introUrl,reconnectTime);
+		super(ui,url,tracker,fallbackUrl,introUrl,0);
 		fileextension="ogg";
 	}
 

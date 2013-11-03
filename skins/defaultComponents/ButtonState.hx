@@ -43,7 +43,7 @@ class ButtonState extends flash.display.Shape {
 		// Create a nice gradient
 		var w:Int = 21;
 		var h:Int = 21;
-		var colors : Array<Int> = [];
+		var colors : Array<UInt> = [];
 		var alphas : Array<Int> = [1, 1];
 		var ratios : Array<Int> = [0, 255];
 		var matrix : flash.geom.Matrix = new flash.geom.Matrix();

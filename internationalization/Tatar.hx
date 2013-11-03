@@ -1,8 +1,8 @@
-////////////////////////////////////////////////////////////////////////////////
+﻿////////////////////////////////////////////////////////////////////////////////
 //
 //  Muses Radio Player - Radio Streaming player written in Haxe.
 //
-//  Copyright (C) 2009-2012  Federico Bricker
+//  Copyright (C) 2009-2013  Federico Bricker
 //
 //  This program is free software; you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -26,23 +26,18 @@
 ////////////////////////////////////////////////////////////////////////////////
 package internationalization;
 
-class AbstractLanguage {
-	private var byText:Map<String,String>;
-	
+class Tatar extends AbstractLanguage {
 	public function new(){
-		byText=new Map<String,String>();
-	}
-	
-	public function getText(key:String):String{
-		return byText.get(key);
-	}
-	
-	public function getTextByStatus(status:PlayerStatus):String{
-		return getText(Type.enumConstructor(status));
-		
-	}
-	
-	function setText(key,text:String){
-		byText.set(key,text);
+		super();
+		setText("play","Уйнату");
+		setText("stop", "Туктату");
+		setText("intro", "Интро");
+		setText("ioError","Челтәр Хатасы");
+		setText("loadComplete","Хата: Йөкләү тәмам");
+		setText("soundComplete","Хата: Тавыш тәмам");
+		setText("volume","Тавыш");
+		setText("securityError","Куркынычсызлык хатасы");
+		setText("about","Muses Radio Player Турында...");
+		setText("version","Версия");
 	}
 }

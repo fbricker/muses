@@ -156,7 +156,7 @@ class Player {
 		var url = getUrl();
 		// If there's a url
 		if (url != null){
-			tracker.track(getCurrentUrl(),true);
+			tracker.track(this,true);
 			// If no sound object, create one
 			if (soundObject == null){
 				request = new flash.net.URLRequest(url);

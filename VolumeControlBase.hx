@@ -36,7 +36,7 @@ class VolumeControlBase extends flash.display.Sprite {
 	var vertDesp:Int;
 	var barStep:Int;
 	var barWidth:Int;
-	var bgColors:Array<Int>;
+	var bgColors:Array<UInt>;
 	var barColors:Array<Int>;
 	var spriteBar:flash.display.Sprite;
 	var firstDraw:Bool;

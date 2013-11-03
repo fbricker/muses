@@ -70,14 +70,14 @@ class Residue0 extends FuncResidue {
         };
         if (info.groupbook >= vi.books) {
             free_info(info);
-            return;
+            return null;
         };
         // for-while;
         var j : Int = 0;
         while (j < acc) {
             if (info.booklist[j] >= vi.books) {
                 free_info(info);
-                return;
+                return null;
             };
             j++;
         };

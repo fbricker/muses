@@ -77,7 +77,7 @@ class Default extends UI {
     public function draw(g : flash.display.Graphics){
 		// Set up a nice gradient for the right hand end of the frame
 		// to look concave
-		var colors : Array<Int> = [0xA0A0A0, 0xF0F0F0];
+		var colors : Array<UInt> = [0xA0A0A0, 0xF0F0F0];
 		var alphas : Array<Int> = [1, 1];
 		var ratios : Array<Int> = [0, 255];
 		var matrix : flash.geom.Matrix = new flash.geom.Matrix();

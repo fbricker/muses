@@ -58,10 +58,10 @@ class CodeBook {
 
     // modifiers: synchronized
     public function decodevs_add(a : Vector<Float>, offset : Int, b : Buffer, n : Int) : Int {
-        var step : UInt = Std.int(n / dim);
+        var step : Int = Std.int(n / dim);
         var entry : Int;
-        var i : UInt;
-        var j : UInt;
+        var i : Int;
+        var j : Int;
         var o : Int;
         if (t.length < step) {
             //t = new int[step];
@@ -80,7 +80,7 @@ class CodeBook {
         // for-while;
         i = 0;
         o = 0;
-        while (i < cast(dim,UInt)) {
+        while (i < dim) {
             // for-while;
             j = 0;
             while (j < step) {

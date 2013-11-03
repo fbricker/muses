@@ -62,13 +62,13 @@ class StreamState {
                 i++;
             };
             // for-while;
-            var i : UInt = 0;
+            var i : Int = 0;
             while (i < lacing_vals.length) {
                 lacing_vals[i] = 0;
                 i++;
             };
             // for-while;
-            var i : UInt = 0;
+            var i : Int = 0;
             while (i < granule_vals.length) {
                 granule_vals[i] = 0;
                 i++;

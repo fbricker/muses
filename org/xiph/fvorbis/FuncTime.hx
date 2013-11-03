@@ -21,11 +21,13 @@ class FuncTime {
     // modifiers: abstract
     public function unpack(vi : Info, opb : Buffer) : Dynamic {
         throw "UnimplementedAbstractMethod";
+        return null;
     }
 
     // modifiers: abstract
     public function look(vd : DspState, vm : InfoMode, i : Dynamic) : Dynamic {
         throw "UnimplementedAbstractMethod";
+        return null;
     }
 
     // modifiers: abstract

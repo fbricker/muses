@@ -86,14 +86,14 @@ class Floor1 extends FuncFloor {
             info.class_subs[j] = opb.read(2);
             if (info.class_subs[j] < 0) {
                 info.free();
-                return;
+                return null;
             };
             if (info.class_subs[j] != 0) {
                 info.class_book[j] = opb.read(8);
             };
             if ((info.class_book[j] < 0) || (info.class_book[j] >= vi.books)) {
                 info.free();
-                return;
+                return null;
             };
             // for-while;
             var k : Int = 0;
@@ -101,7 +101,7 @@ class Floor1 extends FuncFloor {
                 info.class_subbook[j][k] = (opb.read(8) - 1);
                 if ((info.class_subbook[j][k] < -1) || (info.class_subbook[j][k] >= vi.books)) {
                     info.free();
-                    return;
+                    return null;
                 };
                 k++;
             };
@@ -119,7 +119,7 @@ class Floor1 extends FuncFloor {
                 var t : Int = info.postlist[k + 2] = opb.read(rangebits);
                 if ((t < 0) || (t >= (1 << rangebits))) {
                     info.free();
-                    return;
+                    return null;
                 };
                 k++;
             };
@@ -261,13 +261,13 @@ class Floor1 extends FuncFloor {
             if (Std.is(memo, Vector)) {
                 fit_value = memo;
             };
-            if ((fit_value == null) || (fit_value.length < cast(look.posts,UInt))) {
+            if ((fit_value == null) || (fit_value.length < look.posts)) {
                 //fit_value = new int[look.posts];
                 fit_value = new Vector(look.posts, true);
             }
             else {
                 // for-while;
-                var i : UInt = 0;
+                var i : Int = 0;
                 while (i < fit_value.length) {
                     fit_value[i] = 0;
                     i++;
@@ -287,7 +287,7 @@ class Floor1 extends FuncFloor {
                 if (csubbits != 0) {
                     cval = books[info.class_book[clss]].decode(vb.opb);
                     if (cval == -1) {
-                        return;
+                        return null;
                     };
                 };
                 // for-while;
@@ -297,7 +297,7 @@ class Floor1 extends FuncFloor {
                     cval >>>= csubbits;
                     if (book >= 0) {
                         if ((fit_value[j + k] = books[book].decode(vb.opb)) == -1) {
-                            return;
+                            return null;
                         };
                     }
                     else {
@@ -344,7 +344,7 @@ class Floor1 extends FuncFloor {
             };
             return fit_value;
         };
-        return;
+        return null;
     }
 
     // modifiers: static, private

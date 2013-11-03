@@ -1,11 +1,24 @@
-﻿v1.0b [2013-06-16]
+﻿v[1.2]
+* Ported to Haxe3
+* Adjusted OGG Player so it does not need to reload every 30 minutes (same in AAC).
+  (So now the only codec forcing a reconnection from time to time is MP3).
+* Added codec information to the tracking system (helps us to better choose next steps).
+* Added Armenian Translation (thx. to Տեր-Գր.)
+* Added Tatar Translation (thx. to Arslangali)
+* Added new Official and Comminity Skins.
+* in progres...
+
+v1.0b [2013-06-16]
 * Added support for pure AAC streamings (AAC+V2 and FLV containers not supported yet).
 * Refactored liveConnectionChecking all codecs supported.
 * Fixed memory leak on OGG Streamings.
-* Added support for requesting metadata on icecast streaming *with get parameters* (tnx to Allmoz https://github.com/Allmoz)
-* Fixed bug on MRP.js (functions like MRP.stop(), MRP.play() and MRP.setVolume(...) are working fine again)
+* Added support for requesting metadata on icecast streaming *with get parameters* (tnx to
+  Allmoz https://github.com/Allmoz)
+* Fixed bug on MRP.js (functions like MRP.stop(), MRP.play() and MRP.setVolume(...) are
+  working fine again)
 * Support for animated Skins (can use SWF instead of static images)
-* Added Labels to Flash Buttons to help blind or print-impaired users using Screen Reader software (like JAWS).
+* Added Labels to Flash Buttons to help blind or print-impaired users using Screen Reader
+  software (like JAWS).
 * Added fallbackUrl option to the javascript MRP.js code.
 * Fixed documentation of musesCallback function.
 * Happy Father's Day!

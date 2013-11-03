@@ -59,7 +59,7 @@ class ButtonState extends Shape
 
 	var w:Int = 26;
 	var h:Int = 26;
-	var colors : Array<Int> = [];
+	var colors : Array<UInt> = [];
 	var alphas : Array<Int> = [1, 1];
 	var ratios : Array<Int> = [0, 255];
 	var matrix : Matrix = new Matrix();

@@ -21,11 +21,13 @@ class FuncMapping {
     // modifiers: abstract
     public function unpack(info : Info, buffer : Buffer) : Dynamic {
         throw "UnimplementedAbstractMethod";
+        return null;
     }
 
     // modifiers: abstract
     public function look(vd : DspState, vm : InfoMode, m : Dynamic) : Dynamic {
         throw "UnimplementedAbstractMethod";
+        return null;
     }
 
     // modifiers: abstract

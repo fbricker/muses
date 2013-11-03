@@ -162,7 +162,7 @@ class Info {
         };
 
         times = (opb.read(6) + 1);
-        if ((time_type == null) || (time_type.length != cast(times,UInt))) {
+        if ((time_type == null) || (time_type.length != times)) {
             //time_type = new int[times];
             time_type = new Vector(times, true);
         };
@@ -187,7 +187,7 @@ class Info {
             i++;
         };
         floors = (opb.read(6) + 1);
-        if ((floor_type == null) || (floor_type.length != cast(floors,UInt))) {
+        if ((floor_type == null) || (floor_type.length != floors)) {
             //floor_type = new int[floors];
             floor_type = new Vector(floors, true);
         };
@@ -212,7 +212,7 @@ class Info {
             i++;
         };
         residues = (opb.read(6) + 1);
-        if ((residue_type == null) || (residue_type.length != cast(residues,UInt))) {
+        if ((residue_type == null) || (residue_type.length != residues)) {
             //residue_type = new int[residues];
             residue_type = new Vector(residues, true);
         };
@@ -237,7 +237,7 @@ class Info {
             i++;
         };
         maps = (opb.read(6) + 1);
-        if ((map_type == null) || (map_type.length != cast(maps,UInt))) {
+        if ((map_type == null) || (map_type.length != maps)) {
             //map_type = new int[maps];
             map_type = new Vector(maps, true);
         };

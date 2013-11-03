@@ -71,6 +71,7 @@ class OGGSound extends flash.events.EventDispatcher {
 
     public function new(){
 		super();
+		play_buffered = false;
     }
 	
 	public function stop(){
