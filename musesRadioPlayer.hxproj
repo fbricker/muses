@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project version="2" ToolsVersion="4.0">
+  <!-- Output SWF options -->
+  <output>
+    <movie outputType="CustomBuild" />
+    <movie input="" />
+    <movie path="bin\muses.swf" />
+    <movie fps="30" />
+    <movie width="800" />
+    <movie height="600" />
+    <movie version="10" />
+    <movie minorVersion="0" />
+    <movie platform="Flash Player" />
+    <movie background="#FFFFFF" />
+  </output>
+  <!-- Other classes to be compiled into your SWF -->
+  <classpaths>
+    <class path="." />
+  </classpaths>
+  <!-- Build options -->
+  <build>
+    <option directives="" />
+    <option flashStrict="False" />
+    <option mainClass="MusesRadioPlayer" />
+    <option enabledebug="True" />
+    <option additional="" />
+  </build>
+  <!-- haxelib libraries -->
+  <haxelib>
+    <!-- example: <library name="..." /> -->
+  </haxelib>
+  <!-- Class files to compile (other referenced classes will automatically be included) -->
+  <compileTargets>
+    <compile path="src\Main.hx" />
+  </compileTargets>
+  <!-- Assets to embed into the output SWF -->
+  <library>
+    <!-- example: <asset path="..." id="..." update="..." glyphs="..." mode="..." place="..." sharepoint="..." /> -->
+  </library>
+  <!-- Paths to exclude from the Project Explorer tree -->
+  <hiddenPaths>
+    <!-- example: <hidden path="..." /> -->
+  </hiddenPaths>
+  <!-- Executed before build -->
+  <preBuildCommand>haxe MusesRadioPlayer.hxml</preBuildCommand>
+  <!-- Executed after build -->
+  <postBuildCommand alwaysRun="False" />
+  <!-- Other project options -->
+  <options>
+    <option showHiddenPaths="False" />
+    <option testMovie="Custom" />
+    <option testMovieCommand="" />
+  </options>
+  <!-- Plugin storage -->
+  <storage />
+  <PropertyGroup xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{27387344-D02C-4162-A2EC-33DCBBB472C4}</ProjectGuid>
+    <TargetHXMLFile>musesRadioPlayer.hxml</TargetHXMLFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <ItemGroup xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Compile Include="musesRadioPlayer.hxml" />
+    <Compile Include="AacPlayer.hx" />
+    <Compile Include="ArrayTools.hx" />
+    <Compile Include="AudioMetadata.hx" />
+    <Compile Include="ButtonStates.hx" />
+    <Compile Include="CHANGELOG.txt" />
+    <Compile Include="DEPLOYPROCESS.TXT" />
+    <Compile Include="IntroPlayer.hx" />
+    <Compile Include="LGPL" />
+    <Compile Include="MetadataEvent.hx" />
+    <Compile Include="MetadataLoader.hx" />
+    <Compile Include="Mp3Player.hx" />
+    <Compile Include="MusesRadioPlayer.hx" />
+    <Compile Include="OGGSound.hx" />
+    <Compile Include="OggPlayer.hx" />
+    <Compile Include="OpenEvent.hx" />
+    <Compile Include="PAudioSink.hx" />
+    <Compile Include="Player.hx" />
+    <Compile Include="PlayerStatus.hx" />
+    <Compile Include="Resource.swf" />
+    <Compile Include="System.hx" />
+    <Compile Include="Tracker.hx" />
+    <Compile Include="UI.hx" />
+    <Compile Include="ValueChangeEvent.hx" />
+    <Compile Include="VectorTools.hx" />
+    <Compile Include="VolumeControlBase.hx" />
+    <Compile Include="buffering.gif" />
+    <Compile Include="build.bat" />
+    <Compile Include="build.sh" />
+    <Compile Include="muses.swf" />
+    <Compile Include="musesRadioPlayer.hxproj" />
+    <Compile Include="musesRadioPlayer.sln" />
+    <Compile Include="pp" />
+    <Compile Include="proxy.php" />
+    <Compile Include="test-default.html" />
+    <Compile Include="test-skin.html" />
+    <Compile Include="test-tiny.html" />
+    <Compile Include="testSkin.xml" />
+    <Compile Include="testSkinToggle.xml" />
+    <Compile Include="aac\AACSound.hx" />
+    <Compile Include="aac\AdtsStripper.hx" />
+    <Compile Include="aac\FLVSound.hx" />
+    <Compile Include="aac\FlvHeaderGenerator.hx" />
+    <Compile Include="internationalization\AbstractLanguage.hx" />
+    <Compile Include="internationalization\Armenian.hx" />
+    <Compile Include="internationalization\Bulgarian.hx" />
+    <Compile Include="internationalization\Croatian.hx" />
+    <Compile Include="internationalization\Dutch.hx" />
+    <Compile Include="internationalization\English.hx" />
+    <Compile Include="internationalization\Finnish.hx" />
+    <Compile Include="internationalization\French.hx" />
+    <Compile Include="internationalization\German.hx" />
+    <Compile Include="internationalization\Greek.hx" />
+    <Compile Include="internationalization\Hungarian.hx" />
+    <Compile Include="internationalization\Italian.hx" />
+    <Compile Include="internationalization\LanguageFactory.hx" />
+    <Compile Include="internationalization\Norwegian.hx" />
+    <Compile Include="internationalization\Polish.hx" />
+    <Compile Include="internationalization\Portuguese.hx" />
+    <Compile Include="internationalization\Russian.hx" />
+    <Compile Include="internationalization\Slovene.hx" />
+    <Compile Include="internationalization\Spanish.hx" />
+    <Compile Include="internationalization\Swedish.hx" />
+    <Compile Include="internationalization\Tatar.hx" />
+    <Compile Include="internationalization\Turkish.hx" />
+    <Compile Include="internationalization\Ukrainian.hx" />
+    <Compile Include="org\xiph\fogg\Buffer.hx" />
+    <Compile Include="org\xiph\fogg\Packet.hx" />
+    <Compile Include="org\xiph\fogg\Page.hx" />
+    <Compile Include="org\xiph\fogg\StreamState.hx" />
+    <Compile Include="org\xiph\fogg\SyncState.hx" />
+    <Compile Include="org\xiph\foggy\Demuxer.hx" />
+    <Compile Include="org\xiph\ftremor\Mdct.hx" />
+    <Compile Include="org\xiph\fvorbis\AllocChain.hx" />
+    <Compile Include="org\xiph\fvorbis\Block.hx" />
+    <Compile Include="org\xiph\fvorbis\ChainingExample.hx" />
+    <Compile Include="org\xiph\fvorbis\CodeBook.hx" />
+    <Compile Include="org\xiph\fvorbis\Comment.hx" />
+    <Compile Include="org\xiph\fvorbis\DecodeExample.hx" />
+    <Compile Include="org\xiph\fvorbis\Drft.hx" />
+    <Compile Include="org\xiph\fvorbis\DspState.hx" />
+    <Compile Include="org\xiph\fvorbis\EncodeAuxNearestMatch.hx" />
+    <Compile Include="org\xiph\fvorbis\EncodeAuxThreshMatch.hx" />
+    <Compile Include="org\xiph\fvorbis\Floor0.hx" />
+    <Compile Include="org\xiph\fvorbis\Floor1.hx" />
+    <Compile Include="org\xiph\fvorbis\FuncFloor.hx" />
+    <Compile Include="org\xiph\fvorbis\FuncMapping.hx" />
+    <Compile Include="org\xiph\fvorbis\FuncResidue.hx" />
+    <Compile Include="org\xiph\fvorbis\FuncTime.hx" />
+    <Compile Include="org\xiph\fvorbis\Info.hx" />
+    <Compile Include="org\xiph\fvorbis\InfoMode.hx" />
+    <Compile Include="org\xiph\fvorbis\JOrbisException.hx" />
+    <Compile Include="org\xiph\fvorbis\Lookup.hx" />
+    <Compile Include="org\xiph\fvorbis\Lpc.hx" />
+    <Compile Include="org\xiph\fvorbis\Lsp.hx" />
+    <Compile Include="org\xiph\fvorbis\Mapping0.hx" />
+    <Compile Include="org\xiph\fvorbis\Mdct.hx" />
+    <Compile Include="org\xiph\fvorbis\PsyInfo.hx" />
+    <Compile Include="org\xiph\fvorbis\PsyLook.hx" />
+    <Compile Include="org\xiph\fvorbis\Residue0.hx" />
+    <Compile Include="org\xiph\fvorbis\Residue1.hx" />
+    <Compile Include="org\xiph\fvorbis\Residue2.hx" />
+    <Compile Include="org\xiph\fvorbis\StaticCodeBook.hx" />
+    <Compile Include="org\xiph\fvorbis\Time0.hx" />
+    <Compile Include="org\xiph\fvorbis\VorbisFile.hx" />
+    <Compile Include="org\xiph\system\AudioSink.hx" />
+    <Compile Include="org\xiph\system\Bytes.hx" />
+    <Compile Include="skins\Configurable.hx" />
+    <Compile Include="skins\Default.hx" />
+    <Compile Include="skins\Tiny.hx" />
+    <Compile Include="skins\configurableComponents\Button.hx" />
+    <Compile Include="skins\configurableComponents\StatusLed.hx" />
+    <Compile Include="skins\configurableComponents\TitleText.hx" />
+    <Compile Include="skins\configurableComponents\VolumeControl.hx" />
+    <Compile Include="skins\defaultComponents\Button.hx" />
+    <Compile Include="skins\defaultComponents\ButtonState.hx" />
+    <Compile Include="skins\defaultComponents\PlayButton.hx" />
+    <Compile Include="skins\defaultComponents\StopButton.hx" />
+    <Compile Include="skins\defaultComponents\TitleText.hx" />
+    <Compile Include="skins\defaultComponents\VolumeControl.hx" />
+    <Compile Include="skins\tinyComponents\Button.hx" />
+    <Compile Include="skins\tinyComponents\ButtonState.hx" />
+    <Compile Include="skins\tinyComponents\PlayButton.hx" />
+    <Compile Include="skins\tinyComponents\StopButton.hx" />
+    <Compile Include="skins\tinyComponents\TitleText.hx" />
+    <Compile Include="skins\tinyComponents\VolumeControl.hx" />
+    <Compile Include="test-skins-images\bg.jpg" />
+    <Compile Include="test-skins-images\bgtoggle.jpg" />
+    <Compile Include="test-skins-images\holder.jpg" />
+    <Compile Include="test-skins-images\play.jpg" />
+    <Compile Include="test-skins-images\playclick.jpg" />
+    <Compile Include="test-skins-images\statusplay.jpg" />
+    <Compile Include="test-skins-images\statusstop.jpg" />
+    <Compile Include="test-skins-images\stop.jpg" />
+    <Compile Include="test-skins-images\stopbg.jpg" />
+    <Compile Include="test-skins-images\stopclick.jpg" />
+  </ItemGroup>
+</project>
