@@ -61,6 +61,8 @@ class LanguageFactory {
 			case "sl":  return new Slovene();
 			case "hy":  return new Armenian();
 			case "tt":  return new Tatar();
+			case "cs":	return new Czech();
+			case "zh":	return new Chinese();
 		}
 		return new English();
 	}

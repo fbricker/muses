@@ -1,10 +1,13 @@
 ﻿v[1.2]
 * Ported to Haxe3
+* Created MonoDevelop Project Structure (now we support both, FlashDevelop and MonoDevelop).
 * Adjusted OGG Player so it does not need to reload every 30 minutes (same in AAC).
   (So now the only codec forcing a reconnection from time to time is MP3).
 * Added codec information to the tracking system (helps us to better choose next steps).
 * Added Armenian Translation (thx. to Տեր-Գր.)
 * Added Tatar Translation (thx. to Arslangali)
+* Added Chinese Translation (thx. to anonimous contribution)
+* Added Czech Translation (thx. to Ondřej Kolář)
 * Added new Official and Comminity Skins.
 * in progres...
 

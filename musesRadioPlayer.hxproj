@@ -42,7 +42,7 @@
     <!-- example: <hidden path="..." /> -->
   </hiddenPaths>
   <!-- Executed before build -->
-  <preBuildCommand>haxe MusesRadioPlayer.hxml</preBuildCommand>
+  <preBuildCommand>haxe musesRadioPlayer.hxml</preBuildCommand>
   <!-- Executed after build -->
   <postBuildCommand alwaysRun="False" />
   <!-- Other project options -->
@@ -101,7 +101,6 @@
     <Compile Include="muses.swf" />
     <Compile Include="musesRadioPlayer.hxproj" />
     <Compile Include="musesRadioPlayer.sln" />
-    <Compile Include="pp" />
     <Compile Include="proxy.php" />
     <Compile Include="test-default.html" />
     <Compile Include="test-skin.html" />
@@ -205,5 +204,7 @@
     <Compile Include="test-skins-images\stop.jpg" />
     <Compile Include="test-skins-images\stopbg.jpg" />
     <Compile Include="test-skins-images\stopclick.jpg" />
+    <Compile Include="internationalization\Czech.hx" />
+    <Compile Include="internationalization\Chinese.hx" />
   </ItemGroup>
 </project>
