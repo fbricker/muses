@@ -32,6 +32,7 @@ class UI extends flash.display.MovieClip {
     var title      : String;
     var titleText  : flash.text.TextField;
     var artistText : flash.text.TextField;
+    var albumText  : flash.text.TextField;
     var songTitleText : flash.text.TextField;
 	var lang	   : internationalization.AbstractLanguage;
 	var jsEvents   : Bool;
@@ -119,8 +120,9 @@ class UI extends flash.display.MovieClip {
 		if(metadataJson==lastMetadataJson) return;
 		artistText.text = am.artist;
 		songTitleText.text = am.title;
+		albumText.text = am.album;
 		lastMetadataJson=metadataJson;
-		callBack("metadata",am.artist+" - "+am.title);
+		callBack("metadata",am.artist+" - "+am.title+" - "+am.album);
 		callBack("metadata-json",metadataJson);
 	}
 	

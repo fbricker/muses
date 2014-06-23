@@ -141,6 +141,7 @@ class Configurable extends UI {
 					case "volume": cast(this.volumeControl,VolumeControl).configure(this,elem);
 					case "artist": cast(this.artistText,TitleText).configure(this,elem);
 					case "songtitle" : cast(this.songTitleText,TitleText).configure(this,elem);
+					case "album" : cast(this.albumText,TitleText).configure(this,elem);
 					default:
 				}				
 			}
@@ -174,6 +175,9 @@ class Configurable extends UI {
 		songTitleText = new TitleText();
 		songTitleText.width=0;
 		
+		albumText = new TitleText();
+		albumText.width=0;
+		
 		// Position the buttons etc
 		stopButton.x = playButton.width;
 		
@@ -182,6 +186,7 @@ class Configurable extends UI {
 		addChild(stopButton);
 		addChild(titleText);
 		addChild(artistText);
+		addChild(albumText);
 		addChild(songTitleText);
 		addChild(volumeControl);
 		if(pars.skin!=null){
