@@ -60,9 +60,13 @@ class Button extends flash.display.MovieClip {
 				mouseOverState.alpha=0;
 			case MouseEvent.MOUSE_OVER:
 				mouseOverState.alpha=1;
+				noMouseState.alpha=0;
+				noMouseState.visible=false;
 			case MouseEvent.MOUSE_OUT:
 				mouseOverState.alpha=0;
 				mouseDownState.visible=false;
+				noMouseState.alpha=1;
+				noMouseState.visible=true;
 			default:
 		}
 	}
