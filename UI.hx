@@ -122,7 +122,7 @@ class UI extends flash.display.MovieClip {
 		songTitleText.text = am.title;
 		albumText.text = am.album;
 		lastMetadataJson=metadataJson;
-		callBack("metadata",am.artist+" - "+am.title+" - "+am.album);
+		callBack("metadata",am.artist+" - "+am.title);
 		callBack("metadata-json",metadataJson);
 	}
 	
