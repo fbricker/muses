@@ -8,11 +8,11 @@ Here you can find the source code from versions 0.4.6 and above. For older versi
 
 
 If you're trying to make live audio streaming with shoutcast/icecast, work on all major browsers in all major OS maybe you're needing this.
-Live Mp3/OGG Flash Player that works great with Shoutcast and Icecast 2. It has some interesting and necessary features like reconnect on network errors to make sure users never get silence and cache management to avoid memory huge memory consumption.
+Live Mp3/OGG/AAC Flash Player that works great with Shoutcast and Icecast 2. It has some interesting and necessary features like reconnect on network errors to make sure users never get silence and cache management to avoid memory huge memory consumption.
 Developed in haXe, this project only needs Flash 10.1 plugin (or newer) to work.
 
 
-http://www.musesradioplayer.com | Twitter: @MusesPlayer
+http://www.muses.org | Twitter: @MusesPlayer
 
 
 License
