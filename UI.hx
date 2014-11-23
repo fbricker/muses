@@ -44,7 +44,9 @@ class UI extends flash.display.MovieClip {
 		super();
 		lastMetadataJson = "";
 		lastMetadata = "";
-		flash.external.ExternalInterface.addCallback('showInfo', showInfo);
+		try{
+			flash.external.ExternalInterface.addCallback('showInfo', showInfo);
+		}catch(_:Dynamic){}
 	}
 	
 	public function enable(player:Player) { }
@@ -103,7 +105,9 @@ class UI extends flash.display.MovieClip {
 	
 	private function callBack(event:String,param:String){
 		if(!jsEvents) return;
-		flash.external.ExternalInterface.call("musesCallback",event,param);
+		try{
+			flash.external.ExternalInterface.call("musesCallback",event,param);
+		}catch(_:Dynamic){}
 	}
 	
 	public function informSource(url:String,isFallback:Bool) {

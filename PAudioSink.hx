@@ -67,6 +67,11 @@ class PAudioSink extends AudioSink {
         this.cb(this);
     }
 
+    public function getPosition():Float{
+        if(sch==null) return 0;
+        return sch.position;
+    }
+
     override public function write(pcm : Array<Vector<Float>>,
                                    index : Vector<Int>, samples : Int) : Void {
         super.write(pcm, index, samples);

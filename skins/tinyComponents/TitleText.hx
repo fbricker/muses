@@ -44,16 +44,26 @@ class TitleText extends TextField
 		width = 120;
 			
 		selectable = false;
-
+		createTextFormat('play');
+    }
+    
+    public function createTextFormat(testString:String){
 		// Create a TextFormat for the embedded font
+		var format : flash.text.TextFormat = new flash.text.TextFormat();
 
-		var format : TextFormat = new TextFormat();
-		
-		format.align = TextFormatAlign.CENTER;
 		format.font = "Silkscreen";
 		format.size = 11;
-			
-		embedFonts = true;
+		format.align = TextFormatAlign.CENTER;
 		defaultTextFormat = format;
+		embedFonts = true;
+
+		var auxText=text;
+		text=testString;
+		if(this.textWidth==0){
+			y-=1;
+			embedFonts=false;
+		}
+		text=auxText;
     }
+
 }

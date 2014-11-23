@@ -113,4 +113,9 @@ class Default extends UI {
 		// Draw the text field background
 		g.drawRoundRect(titleText.x, titleText.y,titleText.width, titleText.height, 5, 5);
     }
+
+	override public function setLanguage(lang:internationalization.AbstractLanguage){
+		super.setLanguage(lang);
+		cast(this.titleText,TitleText).createTextFormat(lang.getTextAlign(),lang.getText('play'));
+	}
 }

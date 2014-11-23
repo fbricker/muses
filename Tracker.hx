@@ -44,17 +44,19 @@ class Tracker {
 		var url:String = player.getCurrentUrl();
 		
 		if(enabled && (!justOnce || !tracked.get(url))){
-			flash.Lib.getURL(new flash.net.URLRequest("javascript:
-				(function (){
-				   ifrm = document.createElement('IFRAME');
-				   ifrm.setAttribute('src', 'http://hosted.musesradioplayer.com/tracker/track.php?version="+MusesRadioPlayer.VERSION+"&url="+url+"&player="+playerClass+"&skin="+MusesRadioPlayer.SKIN+"');
-				   ifrm.style.width = 1+'px';
-				   ifrm.style.height = 1+'px';
-				   ifrm.style.display = 'none';
-				   document.body.appendChild(ifrm); 
-				})(); "),
-				'_self');
-			tracked.set(url,true);
+			try {
+				flash.Lib.getURL(new flash.net.URLRequest("javascript:
+					(function (){
+					   ifrm = document.createElement('IFRAME');
+					   ifrm.setAttribute('src', 'https://hosted.muses.org/tracker/track.php?version="+MusesRadioPlayer.VERSION+"&url="+url+"&player="+playerClass+"&skin="+MusesRadioPlayer.SKIN+"');
+					   ifrm.style.width = 1+'px';
+					   ifrm.style.height = 1+'px';
+					   ifrm.style.display = 'none';
+					   document.body.appendChild(ifrm); 
+					})(); "),
+					'_self');
+				tracked.set(url,true);				
+			} catch(_:Dynamic) {}
 		}
 	}
 }

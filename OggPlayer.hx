@@ -45,7 +45,7 @@ class OggPlayer extends Player {
 	}
 
 	override function getProgress() : Float {
-		return sound.bytesLoaded;
+		return sound.getPosition();
 	}
 	
 	override function createSoundObject(){

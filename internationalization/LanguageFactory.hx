@@ -63,6 +63,8 @@ class LanguageFactory {
 			case "tt":  return new Tatar();
 			case "cs":	return new Czech();
 			case "zh":	return new Chinese();
+			case "he":	return new Hebrew();
+			case "iw":	return new Hebrew(); // old iso for Hebrew
 		}
 		return new English();
 	}

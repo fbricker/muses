@@ -46,7 +46,7 @@ class TitleText extends flash.text.TextField{
 		defaultTextFormat = format;
     }
 	
-	public function configure(skin: skins.Configurable, elem:Xml){
+	public function configure(skin: skins.Configurable, elem:Xml, defaultTextAlign:TextFormatAlign, testString:String){
 		x=Configurable.parseInt(elem.get('x'),0);
 		y=Configurable.parseInt(elem.get('y'),0);
 		width=Configurable.parseInt(elem.get('width'),0);
@@ -57,7 +57,7 @@ class TitleText extends flash.text.TextField{
 		format.align = switch(align) {
 			case 'center': TextFormatAlign.CENTER;
 			case 'right': TextFormatAlign.RIGHT;
-			default : TextFormatAlign.LEFT;
+			default: defaultTextAlign;
 		}
 		format.font = elem.get('font');
 		format.size = Configurable.parseInt(elem.get('size'),12);
@@ -65,5 +65,21 @@ class TitleText extends flash.text.TextField{
 		embedFonts = (elem.get('font')=="Silkscreen")?true:false;
 		defaultTextFormat = format;
 		this.text = this.text + "";
+		
+		var auxText=text;
+		text=testString;
+		if(this.textWidth==0){
+			if(embedFonts){
+				y-=1;
+				embedFonts=false;
+			}else{
+			var tf : flash.text.TextFormat = new flash.text.TextFormat();
+				tf.size = format.size;
+				tf.color = format.color;
+				tf.align = format.align;
+				defaultTextFormat = tf;
+			}
+		}
+		text=auxText;
 	}
 }

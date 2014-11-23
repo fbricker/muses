@@ -1,16 +1,24 @@
-﻿v[1.2]
+v1.2 [2014-11-23]
 * Ported to Haxe3
+* Added metadata support for Shoutcast V2 (using 7.html)
 * Created MonoDevelop Project Structure (now we support both, FlashDevelop and MonoDevelop).
-* Adjusted OGG Player so it does not need to reload every 30 minutes (same in AAC).
+* Adjusted OGG and AAC decoders so it does not need to reload every 30 minutes.
   (So now the only codec forcing a reconnection from time to time is MP3).
 * Added codec information to the tracking system (helps us to better choose next steps).
 * Added Armenian Translation (thx. to Տեր-Գր.)
 * Added Tatar Translation (thx. to Arslangali)
 * Added Chinese Translation (thx. to anonimous contribution)
 * Added Czech Translation (thx. to Ondřej Kolář)
+* Added Hebrew Translation (thx. to Dan)
 * Added new Official and Comminity Skins.
 * Fixed bug on Metadata-Json event (json object was not valid).
-* in progres...
+* Added default text align to each translation (to allow right aligned languages).
+* Added automatic typography testing (to discard fonts that are not compatible with the selected language).
+* Fixed OGG progress-check detection (now we check audio progress instead of bytes downloaded).
+* Add SSL Certificate to Muses.org servers (now the hosted version of the player works over HTTPS).
+* Automatic protocol detection (HTTP or HTTPS) on hosted version.
+* Added HTML5 support for the hosted version of the player (for mobile devices) [beta].
+* Make the player compatible with Facebook (to allow player the integration inside Facebook).
 
 v1.0b [2013-06-16]
 * Added support for pure AAC streamings (AAC+V2 and FLV containers not supported yet).

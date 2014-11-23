@@ -131,6 +131,11 @@ class OGGSound extends flash.events.EventDispatcher {
 		
 	}
 	
+    public function getPosition():Float{
+        if(asink==null) return -1;
+        return asink.getPosition();
+    }
+
 	public function setVolume(vol:Float){
 		volume=Math.round(vol*100);
 		if(asink!=null){

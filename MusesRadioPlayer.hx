@@ -53,7 +53,7 @@ class MusesRadioPlayer{
 	var reconnectTime		: Int;
 	
 	public static var SKIN:String = 'default';
-	public static var VERSION = "1.2 beta";
+	public static var VERSION = "1.2";
 	public static var FPS:Int = 12;
 	
     // Kick things off

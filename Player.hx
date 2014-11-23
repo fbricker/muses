@@ -72,12 +72,15 @@ class Player {
 		reportBufferingEventTimer.start();
 		introPlayer = new IntroPlayer(introUrl, this);
 		ui.informIntroUrl(introUrl);
-		flash.external.ExternalInterface.addCallback('stopSound', jsStopSound);
-		flash.external.ExternalInterface.addCallback('playSound', jsPlaySound);
-		flash.external.ExternalInterface.addCallback('setVolume', setVolume);
-		flash.external.ExternalInterface.addCallback('setUrl', setUrl);
-		flash.external.ExternalInterface.addCallback('setFallbackUrl', setFallbackUrl);
-		flash.external.ExternalInterface.addCallback('setTitle', setTitle);
+
+		try{
+			flash.external.ExternalInterface.addCallback('stopSound', jsStopSound);
+			flash.external.ExternalInterface.addCallback('playSound', jsPlaySound);
+			flash.external.ExternalInterface.addCallback('setVolume', setVolume);
+			flash.external.ExternalInterface.addCallback('setUrl', setUrl);
+			flash.external.ExternalInterface.addCallback('setFallbackUrl', setFallbackUrl);
+			flash.external.ExternalInterface.addCallback('setTitle', setTitle);			
+		}catch(_:Dynamic){}
 
 		trafficControlTimer = new Timer(20000, 1);
 		trafficControlTimer.addEventListener(flash.events.TimerEvent.TIMER, trafficControl);	

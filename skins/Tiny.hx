@@ -159,4 +159,9 @@ class Tiny extends UI {
 		g.beginFill(0xCEDEEC);
 		g.drawRoundRect(5, 5, 120, 16, 5, 5);
     }
+
+	override public function setLanguage(lang:internationalization.AbstractLanguage){
+		super.setLanguage(lang);
+		cast(this.titleText,TitleText).createTextFormat(lang.getText('play'));
+	}
 }

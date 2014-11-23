@@ -147,4 +147,8 @@ class AACSound  extends flash.events.EventDispatcher {
 		return nt.time;
 	}
 
+	public function getBufferLength():Float {
+		return nt.bufferLength;
+	}
+
 }

@@ -45,4 +45,8 @@ class AbstractLanguage {
 	function setText(key,text:String){
 		byText.set(key,text);
 	}
+
+	public function getTextAlign():flash.text.TextFormatAlign{
+		return flash.text.TextFormatAlign.LEFT;
+	}
 }

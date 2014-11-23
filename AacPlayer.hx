@@ -57,7 +57,7 @@ class AacPlayer extends Player {
 	}
 
 	override function getProgress() : Float {
-		return sound.getProgress();
+		return sound.getProgress() + sound.getBufferLength();
 	}
 	
 	override function startSound(){

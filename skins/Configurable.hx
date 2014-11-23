@@ -136,12 +136,12 @@ class Configurable extends UI {
 					case "bg": this.configure(elem);
 					case "play": this.playButton.configure(this,elem);
 					case "stop": this.stopButton.configure(this,elem);
-					case "text": cast(this.titleText,TitleText).configure(this,elem);
+					case "text": cast(this.titleText,TitleText).configure(this,elem,lang.getTextAlign(),lang.getText('play'));
 					case "status": statusLed.configure(this,elem);
 					case "volume": cast(this.volumeControl,VolumeControl).configure(this,elem);
-					case "artist": cast(this.artistText,TitleText).configure(this,elem);
-					case "songtitle" : cast(this.songTitleText,TitleText).configure(this,elem);
-					case "album" : cast(this.albumText,TitleText).configure(this,elem);
+					case "artist": cast(this.artistText,TitleText).configure(this,elem,lang.getTextAlign(),lang.getText('play'));
+					case "songtitle" : cast(this.songTitleText,TitleText).configure(this,elem,lang.getTextAlign(),lang.getText('play'));
+					case "album" : cast(this.albumText,TitleText).configure(this,elem,lang.getTextAlign(),lang.getText('play'));
 					default:
 				}				
 			}

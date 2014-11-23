@@ -26,6 +26,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 package skins.defaultComponents;
 
+import flash.text.TextFormatAlign;
+
 class TitleText extends flash.text.TextField{
     public function new(){
 		super();
@@ -33,14 +35,25 @@ class TitleText extends flash.text.TextField{
 		height = 15;
 		width = 250;	
 		selectable = false;
-		// Create a TextFormat for the embedded font
+		createTextFormat(TextFormatAlign.LEFT,'play');
+    }
 
+    public function createTextFormat(align:TextFormatAlign, testString:String){
+		// Create a TextFormat for the embedded font
 		var format : flash.text.TextFormat = new flash.text.TextFormat();
 
 		format.font = "Silkscreen";
-		format.size = 12;
-			
-		embedFonts = true;
+		format.size = 12;			
+		format.align = align;
 		defaultTextFormat = format;
+		embedFonts = true;
+
+		var auxText=text;
+		text=testString;
+		if(this.textWidth==0){
+			y-=1;
+			embedFonts=false;
+		}
+		text=auxText;
     }
 }

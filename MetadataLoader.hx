@@ -2,7 +2,7 @@
 //
 //  Muses Radio Player - Radio Streaming player written in Haxe.
 //
-//  Copyright (C) 2009-2012  Federico Bricker
+//  Copyright (C) 2009-2014  Federico Bricker
 //
 //  This program is free software; you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -62,7 +62,7 @@ class MetadataLoader {
 			url = switch(metadataSource) {			
 				case "icecast": player.getCurrentUrl().split("?")[0] + ".xspf";
 				case "streamtheworld": mUrl + "&" + Date.now().getTime();
-				case "shoutcast": StringTools.replace(player.getCurrentUrl(), ';', '');
+				case "shoutcast": player.getCurrentUrl().substr(0,player.getCurrentUrl().indexOf('/',9)) + '/7.html';
 				default: null;
 			}
 			if(proxy!=null){
@@ -109,10 +109,15 @@ class MetadataLoader {
 	
 	function loadShoutcastEvent(e: Event) {
 		var loader=cast(e.target,flash.net.URLLoader);
-		var data = loader.data;
-		var variable:Array<String> = data.split("<font class=default>Current Song: </font></td><td><font class=default><b>");
-		variable = variable[1].split("</b>");
-		ui.setMetadataFromString(variable[0]);
+		var data:String = loader.data;
+		data=StringTools.replace(data,'<html>','');
+		data=StringTools.replace(data,'</html>','');
+		data=StringTools.replace(data,'<body>','');
+		data=StringTools.replace(data,'</body>','');
+		var parsed:Array<String> = data.split(",");
+		var currentSong:String=parsed[6];
+		for(i in 7 ... parsed.length) currentSong += ','+parsed[i];
+		ui.setMetadataFromString(StringTools.trim(currentSong));
 	}
 
 	function loadIcecastEvent(e: Event){
