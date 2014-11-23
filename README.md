@@ -19,7 +19,7 @@ License
 =======
 Muses Radio Player - A simple Flash MP3/OGG/AAC Live Streaming player written in Haxe.
 
-Copyright (C) 2009-2013 Federico Bricker
+&copy; 2009 Federico Bricker
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
