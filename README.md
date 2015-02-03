@@ -1,5 +1,4 @@
-Muses Radio Player
-==================
+#Muses Radio Player
 
 The Flash MP3/OGG/AAC Live Stream Player.
 
@@ -15,11 +14,11 @@ Developed in haXe, this project only needs Flash 10.1 plugin (or newer) to work.
 http://www.muses.org | Twitter: @MusesPlayer
 
 
-License
-=======
+###License
+
 Muses Radio Player - A simple Flash MP3/OGG/AAC Live Streaming player written in Haxe.
 
-&copy; 2009 Federico Bricker
+Copyright &copy; 2009 Federico Bricker
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
