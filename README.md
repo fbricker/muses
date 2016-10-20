@@ -33,3 +33,14 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+###Special Thanks
+* **BrowserStack**, who let us test the player on many platforms and browsers (www.BrowserStack.com)
+* *To our Sponsors*, who helps to keep this project growing!
+* *Juan Manuel Vera*, who designed the new Logo. Tandil, Argentina
+* *Ezequiel Geringer*, who provided great help developing and keeping this project alive! Tandil, Argentina
+* *Daniel Uranga*, who developed the AAC library for MRP. Tandil, Argentina
+* *Matías Rubio*, who designed the original Cardinal Bird Logo, and website templates for this project. Tandil, Argentina
+* *Bill Farmer*, as this Project was initially based on FOggPlayer by him, and still have Classes :) London, United Kingdom
+* *Giorgos Trakadas* (the DeuceD), who designed skins and encouraged many other features! Athens, Greece
+* The whole *Open Source Community*!
